@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenidos a La Feria</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div class="top-header flex-row">
+            <picture class="logo">
+                <img src="" alt="Logo del sitio">
+            </picture>
+            <form action="/" method="GET" enctype="application/x-www-form-urlencoded">
+                <input type="text" class="input" placeholder="Buscar productos, marcas y más">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+            <div class="register-login">
+                <a href="/register">Registrate<i class="far fa-id-card"></i></a>
+                <a href="/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
+            </div>
+            <div class="cart">
+                <a href="/product-cart"><i class="fas fa-shopping-bag"></i></a>
+            </div>
+            <nav>
+               <ul>
+                   <li><a href=""></a></li>
+                   <li><a href=""></a></li>
+                   <li><a href=""></a></li>
+                   <li><a href=""></a></li>
+                   <li><a href=""></a></li>
+               </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h4>
+            registrate a continuación!
+        </h4>
+        <form action="/login" method="post" enctype="application/x-www-form-urlencoded">
+            <div class="nombre">
+                <label for="nombre"> ingresá tu nombre y apellido  </label>
+                <input type="text" name="nombre" id="nombre" placeholder="ingresá tu nombre y apellido">
+            </div>
+            <div class="email">
+                <label for="email"> ingresá tu email  </label>
+                 <input type="email" name="mail" id="mail" placeholder="ingresá tu email">
+            </div>
+            <div class="fecha nacimiento">
+                <label for="brirthdate"> fecha de nacimiento  </label>
+                <input type="date" name="birthdate" id="birthdate">
+            </div>
+            <div class="sexo">
+                <label for="sexo"> cual es tu sexo?  </label><br>
+                <label for="sexo">masculino </label>
+                <input type="radio" name="sexo" id="sexo" value="masculino">
+                <label for="sexo">femenino</label>
+                <input type="radio" name="sexo" id="sexo" value="femenino">
+            </div>
+            <div class="contraseña">
+                <label for="password"> ingresá tu contraseña. recordate que tiene que tener 8 caracteres como mínimo  </label>
+                <input type="password" name="password" id="password" placeholder="ingresá tu contraseña"><br>
+                <label for="repassword"> reingresá tu contraseña  </label>
+                <input type="password" name="repassword" id="repassword" placeholder="repetí tu contraseña"><br>
+            </div>
+            <input type="submit" value="registrarme">
+        </form>
+    </main>
+    <footer></footer>

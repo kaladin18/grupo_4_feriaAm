@@ -1,7 +1,6 @@
 {
   "name": "grupo-4",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,5 +10,15 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaladin18/grupo_4_feriaAm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kaladin18/grupo_4_feriaAm/issues"
+  },
+  "homepage": "https://github.com/kaladin18/grupo_4_feriaAm#readme",
+  "devDependencies": {},
+  "description": ""
 }
