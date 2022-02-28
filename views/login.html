@@ -37,20 +37,23 @@ rel="stylesheet" />
             </nav>
         </div>
     </header>
-    <main>
-        <h4>ingresá a tu cuenta!</h4>
+    <main class="login">
+        <h4>¡INGRESÁ A TU CUENTA!</h4>
         <form action="/" method="post" enctype="application/x-www-form-urlencoded">
             <div class="email">
-                <label for="email"> ingresá tu email  </label>
-                 <input type="email" name="mail" id="mail" placeholder="ingresá tu email">
+                <label for="email"> Ingresá tu email  </label>
+                 <input type="email" name="mail" id="mail" placeholder="ingresá tu email" class="inputt" required>
             </div>
             <div class="contraseña">
-                <label for="repassword"> ingresá tu contraseña  </label>
-                <input type="password" name="repassword" id="repassword" placeholder="ingresá tu contraseña">
+                <label for="repassword"> Ingresá tu contraseña  </label>
+                <input type="password" name="repassword" id="repassword" placeholder="ingresá tu contraseña" class="inputt" required>
             </div>
-            <input type="submit" value="iniciar sesión">
+            <input type="submit" value="iniciar sesión" class="btn">
         </form>
-        <a href="">olvidaste tu contraseña?</a>
-        <a href="">todavía no tenes cuenta? registrate acá</a>
+        <div class="registro-olvido">
+        <a href="">¿Olvidaste tu contraseña?</a>
+        <a href="/register">¿Todavía no tenes cuenta? Registrate acá</a>
+        </div>
+       
     </main>
     <footer></footer>
