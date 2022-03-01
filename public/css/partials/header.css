@@ -1,0 +1,96 @@
+header {
+    background-color: #800080;
+    padding-bottom: 10px;
+}
+header .top-header {
+    flex-wrap: wrap;
+    padding: 10px;
+    align-items: center;
+    margin: 0px 5%;
+    
+}
+.top-header .burger-menu {
+    font-size: var(--title-md);
+    color: whitesmoke;
+}
+.top-header .cart{
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    font-size: var(--title-md);
+    color: whitesmoke;
+}
+header .top-header form {
+    display: flex;
+    justify-content: flex-end;
+    
+}
+header .top-header form input {
+    display: none;
+}
+header .logo {
+    flex-grow: 1;
+    max-width: 30%;
+}
+header .logo img {
+    max-height: 50px;
+}
+.register-login{
+    display: none;
+}
+header nav {
+    display: none;
+}
+header ul li {
+    list-style-type: none;
+    font-size: var(--text-md);
+}
+@media (min-width: 481px){
+    header .top-header{
+        flex-wrap: nowrap;
+        gap: 35px;
+    }
+    
+    header .top-header .burger-menu {
+        display: none;
+    }
+    header .logo img {
+        max-height: 100px;
+    }
+
+    .top-header :nth-child(1) { order: 1; }
+    .top-header :nth-child(2) { order: 1; }
+    .top-header :nth-child(3) { order: 3; }
+    .top-header :nth-child(4) { order: 3; }
+    .top-header :nth-child(5) { order: 2; }
+    
+    
+    header .top-header form {
+        display: flex;
+        flex-grow: 1;
+        width: 50%;
+    }
+    header .top-header form input {
+        display: flex;
+        width: 100%;
+    }
+    .register-login{
+        display: flex;
+        flex-grow: 1;
+        gap: 10px;
+        justify-content: center;
+    }
+    header nav{
+        display: flex;
+        justify-content: center;
+        margin: 15px 15%;
+    }
+    header nav ul {
+        display: flex;
+        flex-grow: 1;
+        justify-content: space-between;
+    }
+}
+@media (min-width: 769px){
+  
+}

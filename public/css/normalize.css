@@ -1,0 +1,34 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+html{
+    font-size: 62.5%;
+}
+body {
+    font-family: var(--roboto);
+    background-color: var(--gris-claro);
+}
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+h3 {
+    font-size: var(--title-md);
+}
+h4 {
+    font-size: var(--title-md);
+}
+p {
+    font-size: var(--text-sm);
+}
+img{
+    width: 100%;
+}

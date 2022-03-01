@@ -1,0 +1,49 @@
+.login {
+    background-color: var(--gris-claro);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.login h4 {
+    width: 90%;
+    padding: 10px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: var(--title-md);
+    font-weight: 500;
+}
+
+.login form {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+}
+
+.login form input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin: 0.7em auto;
+    width: 70%;
+}
+
+.login form input[type="text"] {
+    color: var(--gris-oscuro);
+}
+.login form .inputt{
+    width: 100%;
+}
+.login label {
+    font-size: 1.5em;
+}
+.login .registro-olvido{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    font-size: 1.5em;
+}

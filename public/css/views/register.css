@@ -1,0 +1,82 @@
+.register {
+    padding-top: 1.6em;
+    min-height: 100vh;
+    background-color: #ebebeb;
+}
+  
+.register h4 {
+    width: 90%;
+    font-size: var(--title-md);
+    padding: 1em;
+    margin: 0 auto;
+    text-align: center;
+}
+  
+.register form {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1em;
+}
+  
+.register form h4 {
+    margin-top: 1em;
+}
+
+.register form input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin: 0.7em 0;
+}
+.register form .inputt{
+    width: 100%;
+}
+.register form .sexo{
+    margin-bottom: 5px;
+}
+.register label{
+    font-size: 1.5em;
+}
+.formGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.labelTitle {
+    font-size: 14px;
+    margin-top: 1em;
+}
+
+.userType {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0.3em;
+    gap: 2em;
+}
+
+.userType input {
+    margin: 1em;
+}
+
+.intereses {
+    display: flex;
+    flex-direction: column;
+    margin: 0.3em;
+}
+
+.intereses input {
+    margin: 1em;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+.btn{
+    background-color: #39b54a;
+}
