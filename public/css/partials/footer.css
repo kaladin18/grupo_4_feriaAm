@@ -1,0 +1,22 @@
+/* Footer */
+
+.footerizquierdo {
+    font-size: 20px;
+    
+    text-align: left;
+    
+    
+}
+
+.footerderecho {
+    font-size: 20px;
+
+    text-align: right;
+}
+
+.footercentro {
+    text-align: center;
+    
+    font-size: 20px;
+    
+}
