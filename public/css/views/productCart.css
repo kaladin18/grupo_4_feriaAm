@@ -3,9 +3,13 @@
 }
 
 .ca_titulo_carrito{/*Propiedades del Titulo: Mi Carrito*/
-    font-size: 10px;
+    font-size: 7px;
     margin-top: 20px;
     margin-left: 15px;
+}
+
+.ca_titulo_carrito h3 {
+    font-size: 50px;
 }
 
 .comprar_mas{/*Propiedades seguir comprando*/
@@ -43,8 +47,10 @@
     margin-top: 10px;
     margin-left: 15px;
     margin-bottom: 10px;
-    font-size: 10px
-  
+    
+}
+.ca_nombre_producto h3 { 
+    font-size: 40px;
 }
 
 .talle_ca{/*propiedades del texto del TALLE*/
@@ -92,6 +98,7 @@
     border-radius: 10px;
     padding: 10px;
     margin: 15px;
+    font-size: 15px;
   
 }
 
@@ -109,7 +116,7 @@
 }
 .ca_codigo_postal{/*propiedades del input Cod Postal*/
     text-indent: 15px;
-    width: 30%;
+    width: 70%;
     height:25px;
     border: solid 1px #a3a2a2;
     outline: none;
@@ -152,7 +159,7 @@
     
   
 
-    .ca_container_producto{/*Contenedor de la imagen,talle, código, input cantidad, precio, papelera*/
+    .ca_container_producto{/*Contenedor de la imagen, talle, input cantidad, precio, papelera*/
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -201,16 +208,17 @@
     }
 
 
-    .talle_ca{/*propiedades del texto del TALLE y el CÓDIGO*/
+    .talle_ca{/*propiedades del texto del TALLE*/
         font-size: 18px;
        
     }
 
-    .ca_container_producto{/* Contenedor de la imagen,talle, código, input cantidad, precio, papelera*/
+    .ca_container_producto{/* Contenedor de la imagen, talle, input cantidad, precio, papelera*/
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+    
     }
 
     .ca_container_producto img{/*propiedades de la imagen*/
@@ -218,9 +226,10 @@
         width: 150px;
     }
     .ca_cantidad_producto >input{/*propiedades del input para la cantidad de productos*/
-        width: 70px;
+        width: 130px;
         height: 35px;
         font-size: 22px;
+      
        
     }
 
