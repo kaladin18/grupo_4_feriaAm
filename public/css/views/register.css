@@ -51,12 +51,18 @@
 
 .userType {
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    /*justify-content: flex-start;
     align-items: center;
     margin: 0.3em;
-    gap: 2em;
+    gap: 2em;*/
 }
-
+.userType1 {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5em;
+    align-items: center;
+}
 .userType input {
     margin: 1em;
 }
@@ -79,4 +85,14 @@
 }
 .btn{
     background-color: #39b54a;
+}
+@media (min-width: 600px) {
+    .userType {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0.3em;
+        gap: 2em;
+    }
 }
