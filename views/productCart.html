@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenidos a La Feria</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div class="top-header flex-row">
+            <div class="burger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <a href="/">
+                <picture class="logo">
+                    <img src="/images/logo.svg" alt="Logo del sitio">
+                </picture>
+            </a>
+            
+            <div class="register-login">
+                <a href="/register">Registrate<i class="far fa-id-card"></i></a>
+                <a href="/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
+            </div>
+            <div class="cart">
+                <a href="/product-cart"><i class="fas fa-shopping-bag"></i></a>
+            </div>
+            <form action="/" method="GET" enctype="application/x-www-form-urlencoded">
+                <input type="text" class="input" placeholder="Buscar productos, marcas y más">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+    </header>
+
+    <body>
+        <div class= "ca_titulo_carrito">
+            <h3>Mi Carrito</h3>
+        </div>
+         <div class="comprar_mas"><a href="/">Seguir Comprando</a></div>
+         <section class = "ca_container_producto_total">
+            <div class = "ca_nombre_producto">
+                <h3>Producto xx</h3>
+            </div>
+            <div class= "ca_container_producto">
+                <img src="/images/xx" alt=""> 
+                <div class = "ca_talle_producto">
+                    <p class="talle_ca">Talle: xx</p>
+            
+                </div>   
+                <div class="ca_data_producto">
+                    <form action="" method="POST">
+                        <div class= "margin ca_cantidad_producto">
+                            <input type="number" placeholder="Cantidad">
+                        </div>
+                    </form>
+                    <div class= "margin">
+                        <p class="precio_ca">$ xxx</p>
+                    </div>
+                </div>    
+                    <div class="ca_remove_product">
+                        <button type="button" class="ca_btn_trash"><i class="fas fa-trash-alt"></i></button>
+                    </div>           
+            </div>  
+        </section>
+        <section class="ca_container_uno">
+            <section class="ca_container_dos">
+                <div class = "ca_label_envio">
+                    <p>Costo del Envío</p>
+                </div>   
+                    <form class = "ca_calculo_envio" action="" method="POST">
+                            <input class = "ca_codigo_postal" type="text" placeholder="Código Postal">
+                            <button class = "ca_calcular" type ="submit" > Calcular</button>   
+                   </form>
+                <div class = "ca_subtotal_carrito">
+                    <p>Subtotal ................................. $ xxx</p>
+                </div>
+                <div class = "ca_costo_envio">
+                    <p>Costo del Envío ........................ $ xxx</p>
+                </div>
+                <div class = "ca_monto_total">
+                    <p>Total ....................... $ xxx</p>
+                </div>
+            </section> 
+        </section>
+        <section class = "ca_container_button">
+            <div><button class="shopping"> Finalizar Compra</button></div>
+        </section>
+    </body>
+
+    <footer>
+        <p class="footerizquierdo">
+            Twitter
+            <br>
+            Facebook
+            <br>
+            Instagram
+        </p>
+        <p class="footercentro"><i class="fas fa-certificate"></i>
+            All Rigths Reserved
+        </p>
+        <p class="footerderecho">
+            Idiomas
+        </p>
+    </footer>
+</body>
+</html>

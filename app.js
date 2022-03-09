@@ -8,6 +8,6 @@ app.listen(3000, () => console.log("servidor corriendo en puerto 3000"));
 
 app.get("/", (req, res) => res.sendFile(path.resolve(__dirname, "./views/index.html")));
 app.get("/register", (req, res) => res.sendFile(path.resolve(__dirname, "./views/register.html")));
+app.get("/product-cart", (req, res) => res.sendFile(path.resolve(__dirname, "./views/productCart.html")))
 app.get("/login", (req, res) => res.sendFile(path.resolve(__dirname, "./views/login.html")));
 app.post("/registroexitoso", (req, res) => res.sendFile(path.resolve(__dirname, "./views/registroexitoso.html")));
-app.post("/", (req, res) => res.sendFile(path.resolve(__dirname, "./views/index.html")));
