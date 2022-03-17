@@ -10,38 +10,12 @@
 rel="stylesheet" />
 </head>
 <body>
-    <header>
-        <div class="top-header flex-row">
-            <picture class="logo">
-                <img src="" alt="Logo del sitio">
-            </picture>
-            <form action="/" method="GET" enctype="application/x-www-form-urlencoded">
-                <input type="text" class="input" placeholder="Buscar productos, marcas y más">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-            <div class="register-login">
-                <a href="/register">Registrate<i class="far fa-id-card"></i></a>
-                <a href="/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
-            </div>
-            <div class="cart">
-                <a href="/product-cart"><i class="fas fa-shopping-bag"></i></a>
-            </div>
-            <nav>
-               <ul>
-                   <li><a href=""></a></li>
-                   <li><a href=""></a></li>
-                   <li><a href=""></a></li>
-                   <li><a href=""></a></li>
-                   <li><a href=""></a></li>
-               </ul>
-            </nav>
-        </div>
-    </header>
+    <%- include("../partials/header.ejs") %> 
     <main class="register">
         <h4>
             ¡REGISTRATE A CONTINUACIÓN!
         </h4>
-        <form action="/registroexitoso" method="post" enctype="application/x-www-form-urlencoded">
+        <form action="/register/success" method="POST" enctype="application/x-www-form-urlencoded">
             <div class="nombre">
                 <label for="nombre">Ingresá tu nombre</label>
                 <input type="text" name="nombre" id="nombre" placeholder="ingresá tu nombre y apellido" required class="inputt">
@@ -82,20 +56,6 @@ rel="stylesheet" />
                     <input type="reset" value="Resetear Datos" class="btn">
                 </div>
     </main>
-    <footer>
-        <p class="footerizquierdo">
-            Twitter
-            <br>
-            Facebook
-            <br>
-            Instagram
-        </p>
-        <p class="footercentro"><i class="fas fa-certificate"></i>
-            All Rigths Reserved
-        </p>
-        <p class="footerderecho">
-            Idiomas
-        </p>
-    </footer>
+    <%- include("../partials/footer.ejs") %> 
 </body>
 </html>

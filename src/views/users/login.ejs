@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenidos a La Feria</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+rel="stylesheet" />
+</head>
+<body>
+    <%- include("../partials/header.ejs") %> 
+    <main class="login">
+        <h4>¡INGRESÁ A TU CUENTA!</h4>
+        <form action="/" method="post" enctype="application/x-www-form-urlencoded">
+            <div class="email">
+                <label for="email"> Ingresá tu email  </label>
+                 <input type="email" name="mail" id="mail" placeholder="ingresá tu email" class="inputt" required>
+            </div>
+            <div class="contraseña">
+                <label for="repassword"> Ingresá tu contraseña  </label>
+                <input type="password" name="repassword" id="repassword" placeholder="ingresá tu contraseña" class="inputt" required>
+            </div>
+            <input type="submit" value="iniciar sesión" class="btn">
+        </form>
+        <div class="registro-olvido">
+        <a href="">¿Olvidaste tu contraseña?</a>
+        <a href="/register">¿Todavía no tenes cuenta? Registrate acá</a>
+        </div>
+    </main>
+    <%- include("../partials/footer.ejs") %> 
+</body>
+</html>
