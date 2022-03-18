@@ -1,0 +1,14 @@
+.admin-page a {
+    color: black;
+    font-size: var(--text-lg);
+}
+.admin-page .admin-options{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 60%;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 1;
+    margin: 20px 20%;
+}

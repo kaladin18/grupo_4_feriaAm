@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include ("../partials/head.ejs") %> 
+<body>
+<%- include ("../partials/header.ejs") %>
+<main>
+    <h3>Listado de productos</h3>
+    <ul>
+    <% productList.forEach((producto, index) => { %>
+        <li> Nombre: <%= producto.name %>  </li>
+    <% }) %>
+    </ul>
+</main>
+<%- include ("../partials/footer.ejs") %> 
+</body>
+</html>

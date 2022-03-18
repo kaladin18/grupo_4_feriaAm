@@ -7,10 +7,12 @@
         <h4>
             ¡REGISTRATE A CONTINUACIÓN!
         </h4>
-        <form action="/register/success" method="POST" enctype="application/x-www-form-urlencoded">
+        <form action="/register" method="POST" enctype="application/x-www-form-urlencoded">
             <div class="nombre">
-                <label for="nombre">Ingresá tu nombre</label>
-                <input type="text" name="nombre" id="nombre" placeholder="ingresá tu nombre y apellido" required class="inputt">
+                <label for="name">Ingresá tu nombre</label>
+                <input type="text" name="name" id="name" placeholder="Juan" required class="inputt">
+                <label for="name">Ingresá tu apellido</label>
+                <input type="text" name="lastname" id="lastname" placeholder="Pérez" required class="inputt">
             </div>
             <div class="email">
                 <label for="email"> Ingresá tu email  </label>
@@ -21,20 +23,16 @@
                 <input type="date" id="fechaNacimiento" required class="inputt">
             </div>
             <div>
-                 <label for="sexo"> ¿Qué tipo de ropa buscás?  </label>
+                 <label for="user-type"> ¿Qué tipo de cuenta querés?  </label>
             </div>
             <div class="userType">
                <div class="userType1">
-                <label for="sexo">Masculina </label>
-                <input type="radio" name="sexo" id="sexo" value="masculino" name="radioOption">
+                <label for="user-type">Comprador </label>
+                <input type="radio" name="user-type" id="buyer" value="buyer">
                </div>
                 <div class="userType1">
-                    <label for="sexo">Femenina</label>
-                <input type="radio" name="sexo" id="sexo" value="femenino" name="radioOption">
-                </div>
-                <div class="userType1">
-                    <label for="sexo">Unisex</label>
-                <input type="radio" name="sexo" id="sexo" value="unisex" name="radioOption">
+                    <label for="user-type">Vendedor</label>
+                <input type="radio" name="user-type" id="seller" value="seller">
                 </div>
                 
             </div>
@@ -45,7 +43,7 @@
                 <input type="password" name="repassword" id="repassword" placeholder="repetí tu contraseña" class="inputt" required><br>
                 <div class="buttons">
                     <input type="submit" value="Enviar" class="btn">
-                    <input type="reset" value="Resetear Datos" class="btn">
+                    <input type="reset" value="Resetear Datos" class="btn dlt">
                 </div>
     </main>
     <%- include("../partials/footer.ejs") %> 

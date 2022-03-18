@@ -85,7 +85,21 @@
 }
 .btn{
     background-color: #39b54a;
+    transition: background-color .5s ease;
 }
+.btn:hover{
+    background-color: #0022AA;
+    cursor: pointer;
+}
+.buttons .dlt {
+    background-color: beige;
+    color: black;
+}
+.dlt:hover {
+    background-color: #F72B2B;
+}
+
+
 @media (min-width: 600px) {
     .userType {
         display: flex;
