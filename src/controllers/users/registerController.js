@@ -1,9 +1,9 @@
 module.exports = {
     main: function(req, res) {
-        res.render("users/register");
+        res.render("users/register", { title: 'Registrate gratis' });
     },
     success: function (req, res) {
-        res.render("users/registroexitoso");
+        res.render("users/registerSuccess", { title: 'Bienvenido!' });
     } 
         
     
