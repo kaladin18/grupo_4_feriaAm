@@ -4,11 +4,11 @@
 <body>
 <%- include ("../partials/header.ejs") %>
 <main>
-    <form class="product-create" action="/admin" method="POST" enctype="multipart/form-data">
-        <label for="productName">Nombre del producto: </label>
+    <form class="product-edit" action="/admin" method="POST" enctype="multipart/form-data">
+        <label for="productName">Cambiar nombre: </label>
         <input type="text" name="productName" id="productName">
         <textarea name="productDescription" id="productDescription" cols="30" rows="10">Descripción del producto</textarea>
-        <label for="productImage">Imagen</label>
+        <label for="productImage">Cambiar imagen</label>
         <input type="file" name="productImage" id="productImage">
         <div class="product-type">
             <br>
@@ -28,7 +28,7 @@
             <label for="productPrice">Precio</label>
             <input type="number" min="0.01" step="0.01" max="25000" name="productPrice" id="productPrice" value="00.01">
         </div>
-        <button class="btn" type="submit">Subir producto</button>
+        <button class="btn" type="submit">Actualizar producto</button>
     </form>
 </main>
 <%- include ("../partials/footer.ejs") %> 

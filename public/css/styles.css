@@ -1,12 +1,20 @@
+
+/*Goblales*/
 @import "/css/variables.css";
 @import "/css/normalize.css";
+/*Parciales*/
 @import "/css/partials/header.css";
 @import "/css/partials/footer.css";
+/*Index*/
 @import "/css/views/index.css";
-@import "/css/views/register.css";
-@import "/css/views/login.css";
-@import "/css/views/productCart.css";
-@import "/css/views/admin.css";
+/* Para vistas de users*/
+@import "/css/views/users/register.css";
+@import "/css/views/users/login.css";
+@import "/css/views/users/admin.css";
+/* Para vistas de productos */
+@import "/css/views/products/productCreateAndEdit.css";
+@import "/css/views/products/productDetail.css";
+@import "/css/views/products/productCart.css";
 
 
 

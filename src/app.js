@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const methodOverride = require("method-override");
 
+//configuración del ejs
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 

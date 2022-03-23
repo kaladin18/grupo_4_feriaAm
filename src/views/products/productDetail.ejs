@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include ("../partials/head.ejs") %> 
+<body>
+    <%- include("../partials/header.ejs") %> 
+    <main>
+        <section class="detailed-product">
+            <article>
+                <img src="" alt="Imagen del producto">
+                <div>
+                    <h2>Nombre del producto</h2>
+                    <h3 class="seller-name">Nombre vendedor/tienda</h3>
+                    <h4>Disponibles: 5</h4>
+                    <h4 class="show-price"></h4>
+                    <form action="/products/detail" method="POST" enctype="application/x-www-form-urlencoded">
+                        <div>
+                            <select name="color" id="color">
+                                <option value="red-black">Rojo y negro</option>
+                                <option value="green-purple">Verde y violeta</option>
+                                <option value="blue-grey">Azul y gris</option>
+                                <option value="black-gold">Negro y dorado</option>
+                            </select>
+                            <select name="size" id="size">
+                                <option value="small">S</option>
+                                <option value="medium">M</option>
+                                <option value="large">L</option>
+                                <option value="extra-large">XL</option>
+                            </select>  
+                        <div>
+                            <input class="btn" type="button" value="Agregar a Carrito">
+                            <input type="button" value="Compra rápida">
+                        </div>
+                    </form>
+                </div>
+            </article>
+            <div class="seller-info">
+                <h3>Información del vendedor</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta deleniti ipsum doloremque? Ab, nihil voluptatibus tempore alias doloremque vel adipisci quia et, praesentium corrupti accusantium quo ut dolor laboriosam magni!</p>
+            </div>
+            <div class="product-description">
+                <h3>Descripción del producto</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero, cumque. Debitis quod architecto vero, repellendus odit quidem quibusdam et aut sint, alias quis at saepe. Perspiciatis, amet. Aspernatur, iste non?</p>
+        </section>
+        
+        <section class="products">
+            <h3>Te puede interesar</h3>
+            <div class="product-container flex-row">
+                <article>
+                    <a href="">
+                        <img src="/images/Default_Image_Thumbnail.png" alt="">
+                        <div class="product-card"></div>
+                    </a>
+                </article>
+                <article>
+                    <a href="">
+                        <img src="/images/Default_Image_Thumbnail.png" alt="">
+                        <div class="product-card"></div>
+                    </a>
+                </article>
+                <article>
+                    <a href="">
+                        <img src="/images/Default_Image_Thumbnail.png" alt="">
+                        <div class="product-card"></div>
+                    </a>
+                </article>
+                <article>
+                    <a href="">
+                        <img src="/images/Default_Image_Thumbnail.png" alt="">
+                        <div class="product-card"></div>
+                    </a>
+                </article>
+            </div>
+        </section>
+    </main>
+    <%- include("../partials/footer.ejs") %> 
+</body>
+</html>

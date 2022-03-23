@@ -2,31 +2,8 @@
 <html lang="en">
 <%- include ("../partials/head.ejs") %> 
 <body>
-    <header>
-        <div class="top-header flex-row">
-            <div class="burger-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-            <a href="/">
-                <picture class="logo">
-                    <img src="/images/logo.svg" alt="Logo del sitio">
-                </picture>
-            </a>
-            
-            <div class="register-login">
-                <a href="/register">Registrate<i class="far fa-id-card"></i></a>
-                <a href="/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
-            </div>
-            <div class="cart">
-                <a href="/product-cart"><i class="fas fa-shopping-bag"></i></a>
-            </div>
-            <form action="/" method="GET" enctype="application/x-www-form-urlencoded">
-                <input type="text" class="input" placeholder="Buscar productos, marcas y más">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-    </header>
-
-    <body>
+    <%- include ("../partials/header.ejs") %>
+    <main>
         <div class= "ca_titulo_carrito">
             <h3>Mi Carrito</h3>
         </div>
@@ -79,22 +56,8 @@
         <section class = "ca_container_button">
             <div><button class="shopping"> Finalizar Compra</button></div>
         </section>
-    </body>
+    </main>
 
-    <footer>
-        <p class="footerizquierdo">
-            Twitter
-            <br>
-            Facebook
-            <br>
-            Instagram
-        </p>
-        <p class="footercentro"><i class="fas fa-certificate"></i>
-            All Rigths Reserved
-        </p>
-        <p class="footerderecho">
-            Idiomas
-        </p>
-    </footer>
+    <%- include ("../partials/footer.ejs") %>
 </body>
 </html>
