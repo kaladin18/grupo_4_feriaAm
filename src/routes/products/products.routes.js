@@ -8,5 +8,5 @@ router.get("/", productsController.list);
 router.get("/cart", productsController.cart);
 router.get("/create", productsController.create);
 router.get("/edit", productsController.edit);
-router.get("/detail", productsController.detail);
+router.get("/:id", productsController.detail);
 module.exports = router;
