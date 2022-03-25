@@ -5,7 +5,7 @@ let listaProductos = JSON.parse(fs.readFileSync (path.join(__dirname, "../../dat
 
 //Busca un producto específico en la lista pasando ID como parametro
 let findProduct = (productID) => {
-    let resultadoBusqueda = null;
+    
     listaProductos.forEach(function(item, index){
        listaProductos[index].id == productID ? resultadoBusqueda = listaProductos[index] : " ";
     })
@@ -25,11 +25,12 @@ module.exports = {
         res.render("products/productCreate", { title: "Subir nuevo producto" });
     },
     edit: function(req, res) {
-        res.render("products/productEdit", { title: "Edición de producto" });
+        let data = findProduct(req.params.id);
+        res.render("products/productEdit", { title: "Edición de producto", data: data});
     },
     detail: function(req, res) {
         let data = findProduct(req.params.id);
-        res.render("products/productDetail", { title: "Detalle de producto", data: data});
+        res.render("products/productDetail", { title: "Detalle de producto", data: data, lista: data.size});
     }
 }
 

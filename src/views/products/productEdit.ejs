@@ -4,29 +4,43 @@
 <body>
 <%- include ("../partials/header.ejs") %>
 <main>
-    <form class="product-edit" action="/admin" method="POST" enctype="multipart/form-data">
+    <form class="product-edit" action="/products/:id?_method=PUT" method="POST" enctype="multipart/form-data">
         <label for="productName">Cambiar nombre: </label>
-        <input type="text" name="productName" id="productName">
-        <textarea name="productDescription" id="productDescription" cols="30" rows="10">Descripción del producto</textarea>
+        <input type="text" name="productName" id="productName" value="<%- data.name %> ">
+        <textarea name="productDescription" id="productDescription" cols="30" rows="10"><%- data.description %> </textarea>
         <label for="productImage">Cambiar imagen</label>
         <input type="file" name="productImage" id="productImage">
         <div class="product-type">
             <br>
-            <h3>Estado: </h3>
+            <h3>Estado actual: <%- data.state %> </h3>
             <div class="product-state">
-                <label for="productState"><input type="radio" name="productState" id="new">  Nuevo</label>
-                <label for="productState"><input type="radio" name="productState" id="used">  Usado</label>
+                <label for="productState"><input type="radio" name="productState" id="new" <% if (data.type == "new") { %> checked= "checked" <% } %>>  Nuevo</label>
+                
+                <label for="productState"><input type="radio" name="productState" id="used" <% if (data.type == "used") { %> checked= "checked" <% } %>>  Usado</label>
             </div>
-            <h3>Categoria: </h3>
+            <h3>Categoria actual: </h3>
             <div class="product-category">
-                <label for="productCategory"><input type="radio" name="productCategory id="clothes">  Ropa</label>
-                <label for="productCategory"><input type="radio" name="productCategory id="shoes">  Calzado</label>
+                <label for="productCategory"><input type="radio" name="productCategory id="clothes" <% if (data.category == "clothes") { %> checked= "checked" <% } %>>  Ropa</label>
+                <label for="productCategory"><input type="radio" name="productCategory id="shoes" <% if (data.category == "shoes") { %> checked= "checked" <% } %>>  Calzado</label>
             </div>
-            <label for="productSize"><input type="number" name="productSize" id="productSize"> Talle</label>
+            <label for="productSize">Talles disponibles</label>
+            <% let i = 1 %> ;
+            <% data.size.forEach(function (item, index) {%> 
+                <input type="text" name="productSize" id=<%- "productSize" + i %> value=<%- data.size[index] %> >
+                <% i++; %> 
+            <% }) %> 
+
+            <label for="productColor">Colores disponibles</label>
+            <% let j = 1 %> ;
+            <% data.color.forEach(function (item, index) {%> 
+                <input type="text" name="productColor" id=<%- "productColor" + i %> value=<%- data.color[index] %> >
+                <% i++; %> 
+            <% }) %> 
+            
         </div>
         <div class="price">
             <label for="productPrice">Precio</label>
-            <input type="number" min="0.01" step="0.01" max="25000" name="productPrice" id="productPrice" value="00.01">
+            <input type="number" min="0.01" step="0.01" max="25000" name="productPrice" id="productPrice" value= <%- data.price %> >
         </div>
         <button class="btn" type="submit">Actualizar producto</button>
     </form>
