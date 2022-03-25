@@ -27,6 +27,10 @@ module.exports = {
     cart: function(req, res) {
         res.render("products/productCart", { title: 'Tu carrito' });
     },
+    detail: function(req, res) {
+        let data = findProduct(req.params.id);
+        res.render("products/productDetail", { title: "Detalle de producto", data: data, lista: data.size});
+    },
     create: function(req, res) {
         res.render("products/productCreate", { title: "Subir nuevo producto" });
     },
@@ -52,9 +56,13 @@ module.exports = {
         res.redirect("/products/"+ req.body.productID);
         
     },
-    detail: function(req, res) {
-        let data = findProduct(req.params.id);
-        res.render("products/productDetail", { title: "Detalle de producto", data: data, lista: data.size});
+    deleteProduct: function (req, res) {
+        listaProductos = listaProductos.filter(function(producto){
+            return producto.id != "" + req.params.id;
+        })
+        escribirJSON(listaProductos);
+        res.redirect("/products");
     }
+    
 }
 

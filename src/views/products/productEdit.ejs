@@ -45,6 +45,7 @@
         </div>
         <button class="btn" type="submit">Actualizar producto</button>
     </form>
+    <form action="/products/<%- data.id %>?_method=DELETE" method="post"><button class="btn dlt" type="submit">Eliminar producto</button></form>
 </main>
 <%- include ("../partials/footer.ejs") %> 
 </body>

@@ -10,6 +10,7 @@ router.get("/:id", productsController.detail);
 //creacion y edicion de productos
 router.get("/create", productsController.create);
 router.get("/:id/edit", productsController.editView);
-router.put("/:id", productsController.editPUT)
+router.put("/:id", productsController.editPUT);
+router.delete("/:id", productsController.deleteProduct);
 
 module.exports = router;
