@@ -2,6 +2,9 @@ const path = require("path");
 const express = require("express");
 const app = express();
 const methodOverride = require("method-override");
+//para poder usar el req.body
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 //configuración del ejs
 app.set("view engine", "ejs");

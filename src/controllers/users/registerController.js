@@ -4,6 +4,7 @@ module.exports = {
     },
     success: function (req, res) {
         res.render("users/registerSuccess", { title: 'Bienvenido!' });
+        console.log(req.body);
     } 
         
     

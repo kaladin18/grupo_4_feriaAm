@@ -4,7 +4,8 @@
 <body>
 <%- include ("../partials/header.ejs") %>
 <main>
-    <form class="product-edit" action="/products/:id?_method=PUT" method="POST" enctype="multipart/form-data">
+    <form class="product-edit" method="POST" action="/products/:id?_method=PUT">
+        <input type="hidden" id="productID" name="productID" value=<%- data.id %> >>
         <label for="productName">Cambiar nombre: </label>
         <input type="text" name="productName" id="productName" value="<%- data.name %> ">
         <textarea name="productDescription" id="productDescription" cols="30" rows="10"><%- data.description %> </textarea>
@@ -14,14 +15,14 @@
             <br>
             <h3>Estado actual: <%- data.state %> </h3>
             <div class="product-state">
-                <label for="productState"><input type="radio" name="productState" id="new" <% if (data.type == "new") { %> checked= "checked" <% } %>>  Nuevo</label>
+                <label for="productState"><input type="radio" name="productState" id="new" value="new" <% if (data.type == "new") { %> checked= "checked" <% } %>>  Nuevo</label>
                 
-                <label for="productState"><input type="radio" name="productState" id="used" <% if (data.type == "used") { %> checked= "checked" <% } %>>  Usado</label>
+                <label for="productState"><input type="radio" name="productState" id="used" value="used" <% if (data.type == "used") { %> checked= "checked" <% } %>>  Usado</label>
             </div>
             <h3>Categoria actual: </h3>
             <div class="product-category">
-                <label for="productCategory"><input type="radio" name="productCategory id="clothes" <% if (data.category == "clothes") { %> checked= "checked" <% } %>>  Ropa</label>
-                <label for="productCategory"><input type="radio" name="productCategory id="shoes" <% if (data.category == "shoes") { %> checked= "checked" <% } %>>  Calzado</label>
+                <label for="productCategory"><input type="radio" name="productCategory" id="clothes" value="clothes" <% if (data.category == "clothes") { %> checked= "checked" <% } %>>  Ropa</label>
+                <label for="productCategory"><input type="radio" name="productCategory" id="shoes" value="shoes" <% if (data.category == "shoes") { %> checked= "checked" <% } %>>  Calzado</label>
             </div>
             <label for="productSize">Talles disponibles</label>
             <% let i = 1 %> ;

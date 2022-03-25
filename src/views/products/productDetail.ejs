@@ -19,6 +19,7 @@
                     <h4>Disponibles: <%- data.stock %> </h4>
                     <h4 class="show-price"> <%- data.price %>  </h4>
                     <form action="/products/detail" method="POST" enctype="application/x-www-form-urlencoded">
+                        
                         <div>
                             <select name="color" id="color">
                             <% data.color.forEach(function (item, index) {%> 
