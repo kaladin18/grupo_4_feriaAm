@@ -37,7 +37,7 @@
     margin-bottom: 5px;
 }
 .register label{
-    font-size: 1.5em;
+    font-size: var(--text-md);
 }
 .formGroup {
     display: flex;
@@ -99,8 +99,12 @@
     background-color: #F72B2B;
 }
 
+.show-error {
+    font-size: var(--text-sm);
+    color: #F72B2B;
+}
 
-@media (min-width: 600px) {
+@media (min-width: 481px) {
     .userType {
         display: flex;
         flex-direction: row;

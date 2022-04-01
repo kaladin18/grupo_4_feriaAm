@@ -27,8 +27,8 @@ app.listen(3000, () => console.log("servidor corriendo en puerto 3000"));
 //Ruteo
 
 
-app.use("/register", registerRoutes);
-app.use("/login", loginRoutes);
+app.use("/users/register", registerRoutes);
+app.use("/users/login", loginRoutes);
 app.use("/products", productsRoutes)
 app.use("/", indexRoutes);
 app.use("/admin", adminRoutes);

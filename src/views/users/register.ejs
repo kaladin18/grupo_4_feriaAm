@@ -7,40 +7,93 @@
         <h4>
             ¡REGISTRATE A CONTINUACIÓN!
         </h4>
-        <form action="/register" method="POST" enctype="application/x-www-form-urlencoded">
+     
+        <form action="/users/register" method="POST" enctype="multipart/form-data">
             <div class="nombre">
                 <label for="name">Ingresá tu nombre</label>
-                <input type="text" name="name" id="name" placeholder="Juan" required class="inputt">
+                <% if (locals.errors && errors.name) { %>
+                    <div class="show-error"> 
+                        <%= errors.name.msg %> 
+                    </div>
+                <% } %>
+                <input type="text" name="name" id="name" placeholder="Juan"  class="inputt" value="<%= locals.oldData ? oldData.name : null%>">
+                
+                </div>
                 <label for="name">Ingresá tu apellido</label>
-                <input type="text" name="lastname" id="lastname" placeholder="Pérez" required class="inputt">
+                <% if (locals.errors && errors.lastName) { %>
+                    <div class="show-error"> 
+                        <%= errors.lastName.msg %> 
+                    </div>
+                <% } %>
+                <input type="text" name="lastName" id="lastName" placeholder="Pérez"  class="inputt" value="<%= locals.oldData ? oldData.lastName : null%>">
+                
             </div>
             <div class="email">
                 <label for="email"> Ingresá tu email  </label>
-                 <input type="email" name="mail" id="mail" placeholder="ingresá tu email" class="inputt" required>
-            </div>
-            <div class="formGroup">
-                <label for="fechaNacimiento" class="labelTitle">Fecha de Nacimiento</label>
-                <input type="date" id="fechaNacimiento" required class="inputt">
+                <% if (locals.errors && errors.email) { %>
+                    <div class="show-error"> 
+                        <%= errors.email.msg %> 
+                    </div>
+                <% } %>
+                 <input type="email" name="email" id="email" placeholder="ingresá tu email" class="inputt" value="<%= locals.oldData ? oldData.email : null%>" >
+                
             </div>
             <div>
-                 <label for="user-type"> ¿Qué tipo de cuenta querés?  </label>
+                <label for="UserImage">Subí una foto de perfil</label>
+                <input type="file" name="userImage" id="userImage" >
+                <% if (locals.errors && errors.userImage) { %>
+                    <div class="show-error"> 
+                        <%= errors.userImage.msg %> 
+                    </div>
+                <% } %>
             </div>
+            <div class="formGroup">
+                <label for="birthday" class="labelTitle">Fecha de Nacimiento</label>
+                <% if (locals.errors && errors.birthday) { %>
+                    <div class="show-error"> 
+                        <%= errors.birthday.msg %> 
+                    </div>
+                <% } %>
+                <input type="date" name="birthday" id="birthday"  class="inputt" value="<%= locals.oldData ? oldData.birthday : null%>">
+                
+            </div>
+            <div>
+                 <label for="userType"> ¿Qué tipo de cuenta querés?  </label>
+            </div>
+            <% if (locals.errors && errors.userType) { %>
+                <div class="show-error"> 
+                    <%= errors.userType.msg %> 
+                </div>
+            <% } %>
             <div class="userType">
                <div class="userType1">
-                <label for="user-type">Comprador </label>
-                <input type="radio" name="user-type" id="buyer" value="buyer">
+                <label for="userType">Comprador </label>
+                <input type="radio" name="userType" id="buyer" value="buyer" <% if (locals.oldData && oldData.userType == "buyer") {%> checked <% } %>  >
                </div>
                 <div class="userType1">
-                    <label for="user-type">Vendedor</label>
-                <input type="radio" name="user-type" id="seller" value="seller">
+                    <label for="userType">Vendedor</label>
+                <input type="radio" name="userType" id="seller" value="seller" <% if (locals.oldData && oldData.userType == "seller") {%> checked <% } %> >
                 </div>
+                
                 
             </div>
             <div class="contraseña">
                 <label for="password"> Ingresá tu contraseña.  </label>
-                <input type="password" name="password" id="password" placeholder="8 caracteres mínimo" class="inputt" required><br>
-                <label for="repassword"> Reingresá tu contraseña  </label>
-                <input type="password" name="repassword" id="repassword" placeholder="repetí tu contraseña" class="inputt" required><br>
+                <% if (locals.errors && errors.password) { %>
+                    <div class="show-error"> 
+                        <%= errors.password.msg %> 
+                    </div>
+                <% } %>
+                <input type="password" name="password" id="password" placeholder="8 caracteres mínimo" class="inputt" >
+               
+                <label for="rePassword"> Reingresá tu contraseña  </label>
+                <% if (locals.errors && errors.rePassword) { %>
+                    <div class="show-error"> 
+                        <%= errors.rePassword.msg %> 
+                    </div>
+                <% } %>
+                <input type="password" name="rePassword" id="rePassword" placeholder="repetí tu contraseña" class="inputt" >
+                
                 <div class="buttons">
                     <input type="submit" value="Enviar" class="btn">
                     <input type="reset" value="Resetear Datos" class="btn dlt">
