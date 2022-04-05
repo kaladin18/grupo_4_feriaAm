@@ -16,7 +16,7 @@
                         <%= errors.name.msg %> 
                     </div>
                 <% } %>
-                <input type="text" name="name" id="name" placeholder="Juan"  class="inputt" value="<%= locals.oldData ? oldData.name : null%>">
+                <input type="text" name="name" id="name" placeholder="Nombre"  class="inputt" value="<%= locals.oldData ? oldData.name : null%>">
                 
                 </div>
                 <label for="name">Ingresá tu apellido</label>
@@ -25,7 +25,7 @@
                         <%= errors.lastName.msg %> 
                     </div>
                 <% } %>
-                <input type="text" name="lastName" id="lastName" placeholder="Pérez"  class="inputt" value="<%= locals.oldData ? oldData.lastName : null%>">
+                <input type="text" name="lastName" id="lastName" placeholder="Apellido"  class="inputt" value="<%= locals.oldData ? oldData.lastName : null%>">
                 
             </div>
             <div class="email">
@@ -35,7 +35,7 @@
                         <%= errors.email.msg %> 
                     </div>
                 <% } %>
-                 <input type="email" name="email" id="email" placeholder="ingresá tu email" class="inputt" value="<%= locals.oldData ? oldData.email : null%>" >
+                 <input type="email" name="email" id="email" placeholder="Email" class="inputt" value="<%= locals.oldData ? oldData.email : null%>" >
                 
             </div>
             <div>
@@ -78,13 +78,13 @@
                 
             </div>
             <div class="contraseña">
-                <label for="password"> Ingresá tu contraseña.  </label>
+                <label for="password"> Ingresá tu contraseña (Debe contener al menos 1 mayúscula, una minúscula y un número, y la longitud no debe ser menor a 8 caracteres).  </label>
                 <% if (locals.errors && errors.password) { %>
                     <div class="show-error"> 
                         <%= errors.password.msg %> 
                     </div>
                 <% } %>
-                <input type="password" name="password" id="password" placeholder="8 caracteres mínimo" class="inputt" >
+                <input type="password" name="password" id="password" placeholder="contraseña" class="inputt" >
                
                 <label for="rePassword"> Reingresá tu contraseña  </label>
                 <% if (locals.errors && errors.rePassword) { %>
@@ -92,7 +92,7 @@
                         <%= errors.rePassword.msg %> 
                     </div>
                 <% } %>
-                <input type="password" name="rePassword" id="rePassword" placeholder="repetí tu contraseña" class="inputt" >
+                <input type="password" name="rePassword" id="rePassword" placeholder="Repetí tu contraseña" class="inputt" >
                 
                 <div class="buttons">
                     <input type="submit" value="Enviar" class="btn">

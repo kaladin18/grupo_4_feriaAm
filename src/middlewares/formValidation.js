@@ -24,6 +24,7 @@ const validations = [
         let file = req.file;
         
         let acceptedExtensions = [".jpg", ".jpeg", ".png", ".gif"];
+        
         if (!file) {
             throw new Error("Tienes que subir una imagen")
         } else {

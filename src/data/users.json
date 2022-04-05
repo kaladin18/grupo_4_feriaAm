@@ -1,20 +1,22 @@
-[{"id":1,"first_name":"Eben","last_name":"Shrubsall","email":"eshrubsall0@hubpages.com","password":"M86nubEFxRbK","category":"buyer","image":null},
-{"id":2,"first_name":"Leese","last_name":"Jacobowicz","email":"ljacobowicz1@pcworld.com","password":"L442LXsU","category":"buyer","image":null},
-{"id":3,"first_name":"Jaine","last_name":"Jollie","email":"jjollie2@nifty.com","password":"BprQeb","category":"buyer","image":null},
-{"id":4,"first_name":"Adan","last_name":"Mahaddie","email":"amahaddie3@tinyurl.com","password":"hxBnDcBLCMq","category":"buyer","image":null},
-{"id":5,"first_name":"Napoleon","last_name":"Kimbury","email":"nkimbury4@hibu.com","password":"4q1PQ4","category":"seller","image":null},
-{"id":6,"first_name":"Othella","last_name":"MacGibbon","email":"omacgibbon5@uiuc.edu","password":"l1yQiNg","category":"seller","image":null},
-{"id":7,"first_name":"Annette","last_name":"Loudian","email":"aloudian6@noaa.gov","password":"KlAfrRDsJzlZ","category":"buyer","image":null},
-{"id":8,"first_name":"Wynne","last_name":"Di Francecshi","email":"wdifrancecshi7@miitbeian.gov.cn","password":"UnWiSh2As","category":"seller","image":null},
-{"id":9,"first_name":"Rowland","last_name":"Long","email":"rlong8@apache.org","password":"DufETurV008","category":"buyer","image":null},
-{"id":10,"first_name":"Hulda","last_name":"Olivey","email":"holivey9@zimbio.com","password":"nIlAMZdMd","category":"buyer","image":null},
-{"id":11,"first_name":"Rozella","last_name":"Valente","email":"rvalentea@bluehost.com","password":"cmpoeqflux","category":"buyer","image":null},
-{"id":12,"first_name":"Pembroke","last_name":"Cullotey","email":"pculloteyb@exblog.jp","password":"ChaD3B","category":"buyer","image":null},
-{"id":13,"first_name":"Lora","last_name":"Wilcox","email":"lwilcoxc@wix.com","password":"xB6yLCrVvDbw","category":"buyer","image":null},
-{"id":14,"first_name":"Valdemar","last_name":"Doidge","email":"vdoidged@berkeley.edu","password":"cagclZoT","category":"buyer","image":null},
-{"id":15,"first_name":"Hertha","last_name":"O'Corrin","email":"hocorrine@stumbleupon.com","password":"fKl4dtKPc","category":"buyer","image":null},
-{"id":16,"first_name":"Eada","last_name":"Mattiello","email":"emattiellof@live.com","password":"No3Tjb2TRq","category":"buyer","image":null},
-{"id":17,"first_name":"Linda","last_name":"MacRonald","email":"lmacronaldg@livejournal.com","password":"r6ECfvZVRFeP","category":"buyer","image":null},
-{"id":18,"first_name":"Maddy","last_name":"Abbiss","email":"mabbissh@weibo.com","password":"ony90p6dknE","category":"seller","image":null},
-{"id":19,"first_name":"Stacia","last_name":"Scarth","email":"sscarthi@state.gov","password":"yDCQdaKHdK5","category":"seller","image":null},
-{"id":20,"first_name":"Vern","last_name":"Tilne","email":"vtilnej@vimeo.com","password":"0ep2gYPdsG","category":"buyer","image":null}]
+[
+ {
+  "id": 1,
+  "name": "Franco",
+  "lastName": "Santa María ",
+  "email": "francosantamaria.sm@gmail.com",
+  "birthday": "1995-06-18",
+  "userType": "buyer",
+  "password": "$2a$10$XaT1sFzLvV1la1he5JyXruZRz0PChDlB1Q9yhtNahRak/.KVTv1mq",
+  "image": "1649141426250._img_.jpg"
+ },
+ {
+  "id": 2,
+  "name": "Juan",
+  "lastName": "Alvarez",
+  "email": "jalvarez@gmail.com",
+  "birthday": "1990-05-04",
+  "userType": "buyer",
+  "password": "$2a$10$fRQSUcAp6qN3Am.k1VAtue.gGejXHso/PfTEKKME4FY7ZT1AQUKGe",
+  "image": "1649145106892._img_.jpg"
+ }
+]

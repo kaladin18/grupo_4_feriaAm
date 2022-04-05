@@ -14,8 +14,7 @@ app.use(methodOverride("_method"));
 
 //Requerir archivos de ruteo
 let indexRoutes = require("./routes/index.routes");
-let registerRoutes = require("./routes/users/register.routes");
-let loginRoutes = require("./routes/users/login.routes");
+let usersRoutes = require("./routes/users/users.routes");
 let productsRoutes = require("./routes/products/products.routes")
 let adminRoutes = require("./routes/users/admin.routes");
 
@@ -27,9 +26,8 @@ app.listen(3000, () => console.log("servidor corriendo en puerto 3000"));
 //Ruteo
 
 
-app.use("/users/register", registerRoutes);
-app.use("/users/login", loginRoutes);
-app.use("/products", productsRoutes)
+app.use("/users", usersRoutes);
+app.use("/products", productsRoutes);
 app.use("/", indexRoutes);
 app.use("/admin", adminRoutes);
 
