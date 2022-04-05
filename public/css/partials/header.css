@@ -9,6 +9,19 @@ header .top-header {
     margin: 0px 5%;
     
 }
+.register-login {
+    display: flex;
+    align-items: center;
+}
+header .top-header .register-login img {
+    width: 40px;
+    border-radius: 100%;
+}
+header .top-header .register-login p {
+    color: white;
+    text-decoration: underline;
+    font-size: var(--text-md);
+}
 .top-header .burger-menu {
     font-size: var(--title-md);
     color: whitesmoke;

@@ -61,7 +61,10 @@ module.exports = {
         let userToLogin = User.findByField("email", req.body.email);
         if (userToLogin) {
            if (comparePasswords(req.body.password, userToLogin.password)){
-              return res.redirect("/");
+            delete userToLogin.password;
+            req.session.loggedUser = userToLogin;
+           
+            return res.redirect("/");
            }
            return res.render("users/login", {
             errors: {
@@ -72,13 +75,27 @@ module.exports = {
             oldData: oldData
         });
         }
-        return res.render("users/login", {
-            errors: {
-                email: {
-                    msg: "Este email no se encuentra registrado"
+            return res.render("users/login", {
+                errors: {
+                    email: {
+                        msg: "Este email no se encuentra registrado"
+                    }
                 }
-            }
-        });
+            });
+    },
+
+
+    //Perfil
+    userProfile: function(req, res) {
+        res.render("users/userProfile", { title: 'Tu perfil' });
+    },
+
+
+    //Logout
+    logout: function (req, res) {
+        req.session.destroy();
+        res.locals.currentUser = null;
+        return res.redirect("/");
     }
         
     
