@@ -1,3 +1,8 @@
+.admin-page div img {
+    max-width: 50px;
+}
+
+
 .admin-page a {
     color: black;
     font-size: var(--text-lg);

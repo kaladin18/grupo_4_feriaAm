@@ -11,8 +11,9 @@ module.exports = {
         res.render("products/productCart", { title: 'Tu carrito' });
     },
     detail: function(req, res) {
+        let allProducts = Product.findAll();
         let data = Product.findByPK(req.params.id);
-        res.render("products/productDetail", { title: "Detalle de producto", data: data, lista: data.size});
+        res.render("products/productDetail", { title: "Detalle de producto", data: data, lista: data.size, productData: allProducts});
     },
     create: function(req, res) {
         res.render("products/productCreate", { title: "Subir nuevo producto" });

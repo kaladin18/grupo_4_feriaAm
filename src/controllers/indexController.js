@@ -1,5 +1,10 @@
+const Product = require("../models/Product");
+
+
+
 module.exports = {
     index: function(req, res) {
-        res.render("index", { "title": "Bienvenidos a la Feria"});
+        let productData = Product.getData();
+        res.render("index", { "title": "Bienvenidos a la Feria", productData: productData});
     }
 }

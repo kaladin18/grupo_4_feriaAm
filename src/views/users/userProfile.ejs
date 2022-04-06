@@ -4,6 +4,12 @@
 <body>
     <%- include("../partials/header.ejs") %> 
     <main class="admin-page">
+        <div class="flex-row">
+            <img src="/images/users/<%= locals.currentUser.image %> " alt="Imagen de perfil del usuario">
+            <a href="/users/profile"> <p>Hola <%= locals.currentUser.name %> </p> </a>
+            <a href="/users/logout">Cerrar sesión</a>
+        </div>
+        
        <div class="admin-options">
             <a href="/products/create">Crear nuevo producto</a>
             <a href="/products/edit">Editar los productos existentes</a>

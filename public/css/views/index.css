@@ -20,6 +20,26 @@ main section .product-container a{
 main section article { 
     width: 90vw;
 }
+main section article .product-card {
+    border-top: solid 2px #ebebeb;
+    padding: 1.5rem 1.5rem 1rem;
+    position: relative;
+    margin-left: 10px;
+}
+.price{
+    font-weight: bold;
+    font-size: var(--text-md);
+}
+
+main section article i,
+.discount{
+    color: var(--verde);
+    margin-bottom: 10px;
+}
+.discount, 
+.description {
+    font-size: var(--text-md);
+}
 
 
 

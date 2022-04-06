@@ -4,7 +4,7 @@
 <body>
 <%- include ("../partials/header.ejs") %>
 <main>
-    <form class="product-edit" method="POST" action="/products/:id?_method=PUT">
+    <form class="product-edit" method="POST" action="/products/db/:id?_method=PUT">
         <input type="hidden" id="productID" name="productID" value=<%- data.id %> >>
         <label for="productName">Cambiar nombre: </label>
         <input type="text" name="productName" id="productName" value="<%- data.name %> ">

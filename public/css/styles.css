@@ -10,7 +10,7 @@
 /* Para vistas de users*/
 @import "/css/views/users/register.css";
 @import "/css/views/users/login.css";
-@import "/css/views/users/admin.css";
+@import "/css/views/users/userProfile.css";
 /* Para vistas de productos */
 @import "/css/views/products/productCreateAndEdit.css";
 @import "/css/views/products/productDetail.css";

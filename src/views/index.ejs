@@ -7,88 +7,21 @@
         <section class="products">
             <h3>Vistos recientemente</h3>
             <div class="product-container flex-row">
-                <article>
-                    <a href="">
-                        <img src="/images/Default_Image_Thumbnail.png" alt="">
-                        <div class="product-card"></div>
-                    </a>
-                </article>
-                <article>
-                    <a href="">
-                        <img src="/images/Default_Image_Thumbnail.png" alt="">
-                        <div class="product-card"></div>
-                    </a>
-                </article>
-                <article>
-                    <a href="">
-                        <img src="/images/Default_Image_Thumbnail.png" alt="">
-                        <div class="product-card"></div>
-                    </a>
-                </article>
-                <article>
-                    <a href="">
-                        <img src="/images/Default_Image_Thumbnail.png" alt="">
-                        <div class="product-card"></div>
-                    </a>
-                </article>
-            </div>
-        </section>
-        <section class="products">
-            <h3>Te puede interesar</h3>
-            <div class="product-container flex-row">
-                <article>
-                    <a href="">
-                        <img src="/images/Default_Image_Thumbnail.png" alt="">
-                        <div class="product-card"></div>
-                    </a>
-                </article>
-                <article>
-                    <a href="">
-                        <img src="/images/Default_Image_Thumbnail.png" alt="">
-                        <div class="product-card"></div>
-                    </a>
-                </article>
-                <article>
-                    <a href="">
-                        <img src="/images/Default_Image_Thumbnail.png" alt="">
-                        <div class="product-card"></div>
-                    </a>
-                </article>
-                <article>
-                    <a href="">
-                        <img src="/images/Default_Image_Thumbnail.png" alt="">
-                        <div class="product-card"></div>
-                    </a>
-                </article>
-            </div>
-        </section>
-        <section class="products">
-            <h3>Ofertas</h3>
-            <div class="product-container flex-row">
-                <article>
-                    <a href="">
-                        <img src="/images/Default_Image_Thumbnail.png" alt="">
-                        <div class="product-card"></div>
-                    </a>
-                </article>
-                <article>
-                    <a href="">
-                        <img src="/images/Default_Image_Thumbnail.png" alt="">
-                        <div class="product-card"></div>
-                    </a>
-                </article>
-                <article>
-                    <a href="">
-                        <img src="/images/Default_Image_Thumbnail.png" alt="">
-                        <div class="product-card"></div>
-                    </a>
-                </article>
-                <article>
-                    <a href="">
-                        <img src="/images/Default_Image_Thumbnail.png" alt="">
-                        <div class="product-card"></div>
-                    </a>
-                </article>
+                <% for( let i = 0; i < 4; i++ ) { %>
+                    <article>
+                        <a href="/products/db/<%= productData[i].id %> ">
+                            <img src="/images/products/<%= productData[i].image %> " alt="Imagen de <%= productData[i].name %> ">
+                            <div class="product-card">
+                                <div class="flex-row">
+                                    <p class="price"> $<%= productData[i].price %> </p> 
+                                    <p class="discount"><%= productData[i].discount? productData[i].discount + " off" : " " %> </p>
+                                </div>
+                                <h3 class="description"><%= productData[i].name %></h3>                
+                            </div>
+                            
+                        </a>
+                    </article>
+                <% } %>
             </div>
         </section>
     </main>

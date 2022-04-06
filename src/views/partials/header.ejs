@@ -12,7 +12,7 @@
         <div class="register-login">
             <% if (locals.isLogged) { %>
                 <img src="/images/users/<%= locals.currentUser.image %> " alt="Imagen de perfil del usuario">
-                <p>Hola <%= locals.currentUser.name %> </p>
+                <a href="/users/profile"> <p>Hola <%= locals.currentUser.name %> </p> </a>
                 <a href="/users/logout">Cerrar sesión</a>
             
             <% } else {%>
