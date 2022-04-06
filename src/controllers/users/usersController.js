@@ -64,6 +64,9 @@ module.exports = {
             delete userToLogin.password;
             req.session.loggedUser = userToLogin;
            
+            if (req.body.rememberMe) {
+                res.cookie("userEmail", req.body.email, { maxAge: (1000 * 60) * 60});
+            }
             return res.redirect("/");
            }
            return res.render("users/login", {
@@ -93,6 +96,7 @@ module.exports = {
 
     //Logout
     logout: function (req, res) {
+        res.clearCookie("userEmail");
         req.session.destroy();
         res.locals.currentUser = null;
         return res.redirect("/");
