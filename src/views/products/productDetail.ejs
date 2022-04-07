@@ -43,10 +43,14 @@
                                 <% }) %> 
                             </select> 
                         </div>
-                        <div>
-                            <input class="btn" type="button" value="Agregar a Carrito">
-                            <input class="btn" type="button" value="Compra rápida">
-                        </div>
+                        <% if (locals.isLogged && locals.currentUser.id == data.sellerID) { %>
+                                <a class="btn" href="/products/db/<%= data.id %>/edit "> Editar/eliminar producto</a>
+                        <% } else {%> 
+                            <div>
+                                <input class="btn" type="button" value="Agregar a Carrito">
+                                <input class="btn" type="button" value="Compra rápida">
+                            </div>
+                            <% } %> 
                     </form>
                 </div>
             </article>
