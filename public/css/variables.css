@@ -1,19 +1,19 @@
 :root {
-    /* colores */
-    --amarillo: #eac926;
-    --azul: #03264c;
-    --azul-claro: #0022aa;
-    --celeste: #1259c3;
-    --gris-oscuro: #666;
-    --gris-claro: #ebebeb;
-    --verde: #39b54a;
-    --negro: #000000;
-    --blanco: #ffffff;
-    /* tamaños de fuentes */
-    --text-sm: 1.2em;
-    --text-md: 1.6em;
-    --text-lg: 1.8em;
-    --title-md: 2.4em;
-    /* familias de fuentes */
-    --roboto: "Roboto", sans-serif;
+  /* colores */
+  --amarillo: #eac926;
+  --azul: #03264c;
+  --azul-claro: #0022aa;
+  --celeste: #1259c3;
+  --gris-oscuro: #666;
+  --gris-claro: #ebebeb;
+  --verde: #39b54a;
+  --negro: #000000;
+  --blanco: #ffffff;
+  /* tamaños de fuentes */
+  --text-sm: 1.2em;
+  --text-md: 1.6em;
+  --text-lg: 1.8em;
+  --title-md: 2.4em;
+  /* familias de fuentes */
+  --roboto: "Roboto", sans-serif;
 }

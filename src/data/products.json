@@ -22,9 +22,9 @@
  },
  {
   "id": 2,
-  "name": "Short",
-  "description": "morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est",
-  "price": 1298.79,
+  "name": "Short  ",
+  "description": "Short bien piola :O",
+  "price": "1298.79",
   "discount": "15%",
   "category": "clothes",
   "image": "short.jpg",
@@ -75,7 +75,9 @@
    "L",
    "XL"
   ],
-  "color": ["Violeta"],
+  "color": [
+   "Violeta"
+  ],
   "stock": 1,
   "sellerID": 1
  }

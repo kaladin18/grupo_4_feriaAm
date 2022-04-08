@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include ("../partials/head.ejs") %> 
+<%- include ("../partials/head.ejs") %>
+
 <body>
-    <%- include("../partials/header.ejs") %> 
-    <main class="registro-exitoso">
-      <h2>Tu cuenta ha sido creada exitosamente</h2>
-      <p>Bienvenido <%= newUserName %> a la feria! </p>
-      <a href="/">Regresar a home</a>
-    </main>
-    <%- include("../partials/footer.ejs") %> 
+  <%- include("../partials/header.ejs") %>
+  <main class="registro-exitoso">
+    <h2>Tu cuenta ha sido creada exitosamente</h2>
+    <p>Bienvenido <%= newUserName %> a la feria! </p>
+    <a href="/">Regresar a home</a>
+  </main>
+  <%- include("../partials/footer.ejs") %>
 </body>
+
 </html>

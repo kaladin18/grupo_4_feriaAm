@@ -1,26 +1,29 @@
-.product-create, .product-edit {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin: 50px 0px;
+.product-create,
+.product-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 50px 0px;
 }
-.product-create input, .product-edit input {
-    max-width: 250px;
+.product-create input,
+.product-edit input {
+  max-width: 250px;
 }
-.product-create label, .product-edit label {
-    font-size: var(--text-lg);
+.product-create label,
+.product-edit label {
+  font-size: var(--text-lg);
 }
-.product-create .btn, .product-edit .btn {
-    max-width: 100px;
-    
+.product-create .btn,
+.product-edit .btn {
+  max-width: 100px;
 }
 .product-type {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-.product-state, .product-category {
-    display: flex;
-    gap: 20px;
+.product-state,
+.product-category {
+  display: flex;
+  gap: 20px;
 }
-

@@ -1,57 +1,57 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 const User = {
-    fileName: "../data/users.json",
+  fileName: "../data/users.json",
 
-    getData: function() { 
-        return JSON.parse(fs.readFileSync (path.join(__dirname, this.fileName), "utf-8"));
-    },
+  getData: function () {
+    return JSON.parse(
+      fs.readFileSync(path.join(__dirname, this.fileName), "utf-8")
+    );
+  },
 
-    writeData: function(data) {
-        fs.writeFileSync(path.join(__dirname, this.fileName), JSON.stringify(data, null, " "));
-    },
+  writeData: function (data) {
+    fs.writeFileSync(
+      path.join(__dirname, this.fileName),
+      JSON.stringify(data, null, " ")
+    );
+  },
 
-    generateId: function ()  {
-        let allUsers = this.findAll();
-        let lastUser = allUsers.pop();
-        if (lastUser) {
-            return lastUser.id +1;
-        }
-        return 1;
-    },
+  generateId: function () {
+    let allUsers = this.findAll();
+    let lastUser = allUsers.pop();
+    if (lastUser) {
+      return lastUser.id + 1;
+    }
+    return 1;
+  },
 
+  findAll: function () {
+    return this.getData();
+  },
 
-    findAll: function () {
-        return this.getData();
-    },
+  create: function (userData) {
+    let allUsers = this.getData();
 
-    create: function (userData) {
-        let allUsers = this.getData();
-        
-        let newUser = {
-            id: this.generateId(),
-            ...userData
-        }
-        console.log(allUsers);
-        allUsers.push(newUser);
-        this.writeData(allUsers);
-    },
+    let newUser = {
+      id: this.generateId(),
+      ...userData,
+    };
+    console.log(allUsers);
+    allUsers.push(newUser);
+    this.writeData(allUsers);
+  },
 
-    findByPK: function (id) {
-        let allUsers = this.findAll();
-        let userFound = allUsers.find(user => user.id == id);
-        return userFound;
-    },
+  findByPK: function (id) {
+    let allUsers = this.findAll();
+    let userFound = allUsers.find((user) => user.id == id);
+    return userFound;
+  },
 
-    findByField: function (field, text) {
-        let allUsers = this.findAll();
-        let userFound = allUsers.find(user => user[field] == text);
-        return userFound;
-    },
-
-
-
-
-}
+  findByField: function (field, text) {
+    let allUsers = this.findAll();
+    let userFound = allUsers.find((user) => user[field] == text);
+    return userFound;
+  },
+};
 module.exports = User;

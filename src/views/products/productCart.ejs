@@ -1,63 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include ("../partials/head.ejs") %> 
-<body>
-    <%- include ("../partials/header.ejs") %>
-    <main>
-        <div class= "ca_titulo_carrito">
-            <h3>Mi Carrito</h3>
-        </div>
-         <div class="comprar_mas"><a href="/">Seguir Comprando</a></div>
-         <section class = "ca_container_producto_total">
-            <div class = "ca_nombre_producto">
-                <h3>Producto xx</h3>
-            </div>
-            <div class= "ca_container_producto">
-                <img src="/images/xx" alt=""> 
-                <div class = "ca_talle_producto">
-                    <p class="talle_ca">Talle: xx</p>
-            
-                </div>   
-                <div class="ca_data_producto">
-                    <form action="" method="POST">
-                        <div class= "margin ca_cantidad_producto">
-                            <input type="number" placeholder="Cantidad">
-                        </div>
-                    </form>
-                    <div class= "margin">
-                        <p class="precio_ca">$ xxx</p>
-                    </div>
-                </div>    
-                    <div class="ca_remove_product">
-                        <button type="button" class="ca_btn_trash"><i class="fas fa-trash-alt"></i></button>
-                    </div>           
-            </div>  
-        </section>
-        <section class="ca_container_uno">
-            <section class="ca_container_dos">
-                <div class = "ca_label_envio">
-                    <p>Costo del Envío</p>
-                </div>   
-                    <form class = "ca_calculo_envio" action="" method="POST">
-                            <input class = "ca_codigo_postal" type="text" placeholder="Código Postal">
-                            <button class = "ca_calcular" type ="submit" > Calcular</button>   
-                   </form>
-                <div class = "ca_subtotal_carrito">
-                    <p>Subtotal ................................. $ xxx</p>
-                </div>
-                <div class = "ca_costo_envio">
-                    <p>Costo del Envío ........................ $ xxx</p>
-                </div>
-                <div class = "ca_monto_total">
-                    <p>Total ....................... $ xxx</p>
-                </div>
-            </section> 
-        </section>
-        <section class = "ca_container_button">
-            <div><button class="shopping"> Finalizar Compra</button></div>
-        </section>
-    </main>
+<%- include ("../partials/head.ejs") %>
 
-    <%- include ("../partials/footer.ejs") %>
+<body>
+  <%- include ("../partials/header.ejs") %>
+  <main>
+    <div class="ca_titulo_carrito">
+      <h3>Mi Carrito</h3>
+    </div>
+    <div class="comprar_mas"><a href="/">Seguir Comprando</a></div>
+    <section class="ca_container_producto_total">
+      <div class="ca_nombre_producto">
+        <h3>Producto xx</h3>
+      </div>
+      <div class="ca_container_producto">
+        <img src="/images/xx" alt="">
+        <div class="ca_talle_producto">
+          <p class="talle_ca">Talle: xx</p>
+
+        </div>
+        <div class="ca_data_producto">
+          <form action="" method="POST">
+            <div class="margin ca_cantidad_producto">
+              <input type="number" placeholder="Cantidad">
+            </div>
+          </form>
+          <div class="margin">
+            <p class="precio_ca">$ xxx</p>
+          </div>
+        </div>
+        <div class="ca_remove_product">
+          <button type="button" class="ca_btn_trash"><i class="fas fa-trash-alt"></i></button>
+        </div>
+      </div>
+    </section>
+    <section class="ca_container_uno">
+      <section class="ca_container_dos">
+        <div class="ca_label_envio">
+          <p>Costo del Envío</p>
+        </div>
+        <form class="ca_calculo_envio" action="" method="POST">
+          <input class="ca_codigo_postal" type="text" placeholder="Código Postal">
+          <button class="ca_calcular" type="submit"> Calcular</button>
+        </form>
+        <div class="ca_subtotal_carrito">
+          <p>Subtotal ................................. $ xxx</p>
+        </div>
+        <div class="ca_costo_envio">
+          <p>Costo del Envío ........................ $ xxx</p>
+        </div>
+        <div class="ca_monto_total">
+          <p>Total ....................... $ xxx</p>
+        </div>
+      </section>
+    </section>
+    <section class="ca_container_button">
+      <div><button class="shopping"> Finalizar Compra</button></div>
+    </section>
+  </main>
+
+  <%- include ("../partials/footer.ejs") %>
 </body>
+
 </html>

@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include ("../partials/head.ejs") %> 
+<%- include ("../partials/head.ejs") %>
+
 <body>
-<%- include ("../partials/header.ejs") %>
-<main>
+  <%- include ("../partials/header.ejs") %>
+  <main>
     <form class="product-create" action="/admin" method="POST" enctype="multipart/form-data">
-        <label for="productName">Nombre del producto: </label>
-        <input type="text" name="productName" id="productName">
-        <textarea name="productDescription" id="productDescription" cols="30" rows="10">Descripción del producto</textarea>
-        <label for="productImage">Imagen</label>
-        <input type="file" name="productImage" id="productImage">
-        <div class="product-type">
-            <br>
-            <h3>Estado: </h3>
-            <div class="product-state">
-                <label for="productState"><input type="radio" name="productState" id="new">  Nuevo</label>
-                <label for="productState"><input type="radio" name="productState" id="used">  Usado</label>
-            </div>
-            <h3>Categoria: </h3>
-            <div class="product-category">
-                <label for="productCategory"><input type="radio" name="productCategory id="clothes">  Ropa</label>
-                <label for="productCategory"><input type="radio" name="productCategory id="shoes">  Calzado</label>
-            </div>
-            <label for="productSize"><input type="number" name="productSize" id="productSize"> Talle</label>
+      <label for="productName">Nombre del producto: </label>
+      <input type="text" name="productName" id="productName">
+      <textarea name="productDescription" id="productDescription" cols="30" rows="10">Descripción del producto</textarea>
+      <label for="productImage">Imagen</label>
+      <input type="file" name="productImage" id="productImage">
+      <div class="product-type">
+        <br>
+        <h3>Estado: </h3>
+        <div class="product-state">
+          <label for="productState"><input type="radio" name="productState" id="new"> Nuevo</label>
+          <label for="productState"><input type="radio" name="productState" id="used"> Usado</label>
         </div>
-        <div class="price">
-            <label for="productPrice">Precio</label>
-            <input type="number" min="0.01" step="0.01" max="25000" name="productPrice" id="productPrice" value="00.01">
+        <h3>Categoria: </h3>
+        <div class="product-category">
+          <label for="productCategory"><input type="radio" name="productCategory id=" clothes"> Ropa</label>
+          <label for="productCategory"><input type="radio" name="productCategory id=" shoes"> Calzado</label>
         </div>
-        <button class="btn" type="submit">Subir producto</button>
+        <label for="productSize"><input type="number" name="productSize" id="productSize"> Talle</label>
+      </div>
+      <div class="price">
+        <label for="productPrice">Precio</label>
+        <input type="number" min="0.01" step="0.01" max="25000" name="productPrice" id="productPrice" value="00.01">
+      </div>
+      <button class="btn" type="submit">Subir producto</button>
     </form>
-</main>
-<%- include ("../partials/footer.ejs") %> 
+  </main>
+  <%- include ("../partials/footer.ejs") %>
 </body>
+
 </html>

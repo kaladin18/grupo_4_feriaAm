@@ -1,89 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include ("../partials/head.ejs") %> 
+<%- include ("../partials/head.ejs") %>
+
 <body>
-    <%- include("../partials/header.ejs") %> 
-    <main>
-        <section class="detailed-product">
-            <article>
-                <div class="product-image">
-                    <img src="/images/products/<%= data.image %> " alt="Imagen del producto">
-                </div>
-                <div class="product-detail">
-                    <h3 class="product-name"><%- data.name %> </h3>
-                    <% if (data.type == "new") { %>
-                        <p>Nuevo</p>
-                    <% } else { %>
-                        <p>Usado</p>
-                    <% } %> 
-                     
-                    <h4 class="seller-name">Nombre vendedor/tienda</h4>
-                    <h4> Precio unitario: <%- data.price %>  </h4>
-                   
-                    
-                    <form action="/products/detail" method="POST" enctype="application/x-www-form-urlencoded">
-                        
-                        <h4>Disponibles: <%- data.stock %> </h4>  
-                        <select name="product-amount" id="product-amount">
-                            <option value="">Selecciona Cantidad</option>
-                            <% for (let i = 1; i <= data.stock; i++) { %>
-                                <option value=<%= i %>> <%= i %> </option>
-                            <% } %> 
-                        </select>
-                        <div>
-                            <select name="color" id="color">
-                            <% data.color.forEach(function (item, index) {%> 
-                                <option value=<%- data.color[index] %> > <%- data.color[index]  %> </option>
-                            <% }) %> 
-                            </select>
-                            
-                            <select name="size" id="size">
-                                <% data.size.forEach(function (item, index) {%> 
-                                    <option value=<%- data.size[index] %> > <%- data.size[index]  %> </option>
-                                <% }) %> 
-                            </select> 
-                        </div>
-                        <% if (locals.isLogged && locals.currentUser.id == data.sellerID) { %>
-                                <a class="btn" href="/products/db/<%= data.id %>/edit "> Editar/eliminar producto</a>
-                        <% } else {%> 
-                            <div>
-                                <input class="btn" type="button" value="Agregar a Carrito">
-                                <input class="btn" type="button" value="Compra rápida">
-                            </div>
-                            <% } %> 
-                    </form>
-                </div>
-            </article>
-            <div class="seller-info">
-                <h3>Información del vendedor</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta deleniti ipsum doloremque? Ab, nihil voluptatibus tempore alias doloremque vel adipisci quia et, praesentium corrupti accusantium quo ut dolor laboriosam magni!</p>
+  <%- include("../partials/header.ejs") %>
+  <main>
+    <section class="detailed-product">
+      <article>
+        <div class="product-image">
+          <img src="/images/products/<%= data.image %> " alt="Imagen del producto">
+        </div>
+        <div class="product-detail">
+          <h3 class="product-name"><%- data.name %> </h3>
+          <% if (data.type == "new") { %>
+          <p>Nuevo</p>
+          <% } else { %>
+          <p>Usado</p>
+          <% } %>
+
+          <h4 class="seller-name">Nombre vendedor/tienda</h4>
+          <h4> Precio unitario: <%- data.price %> </h4>
+
+
+          <form action="/products/detail" method="POST" enctype="application/x-www-form-urlencoded">
+
+            <h4>Disponibles: <%- data.stock %> </h4>
+            <select name="product-amount" id="product-amount">
+              <option value="">Selecciona Cantidad</option>
+              <% for (let i = 1; i <= data.stock; i++) { %>
+              <option value=<%= i %>> <%= i %> </option>
+              <% } %>
+            </select>
+            <div>
+              <select name="color" id="color">
+                <% data.color.forEach(function (item, index) {%>
+                <option value=<%- data.color[index] %>> <%- data.color[index]  %> </option>
+                <% }) %>
+              </select>
+
+              <select name="size" id="size">
+                <% data.size.forEach(function (item, index) {%>
+                <option value=<%- data.size[index] %>> <%- data.size[index]  %> </option>
+                <% }) %>
+              </select>
             </div>
-            <div class="product-description">
-                <h3>Descripción del producto</h3>
-                <p> <%- data.description %>  </p>
-        </section>
-        
-        <section class="products">
-            <h3>Te puede interesar</h3>
-            <div class="product-container flex-row">
-                <% for( let i = 0; i < 4; i++ ) { %>
-                    <article>
-                        <a href="/products/db/<%= productData[i].id %> ">
-                            <img src="/images/products/<%= productData[i].image %> " alt="Imagen de <%= productData[i].name %> ">
-                            <div class="product-card">
-                                <div class="flex-row">
-                                    <p class="price"> $<%= productData[i].price %> </p> 
-                                    <p class="discount"><%= productData[i].discount? productData[i].discount + " off" : " " %> </p>
-                                </div>
-                                <h3 class="description"><%= productData[i].name %></h3>                
-                            </div>
-                            
-                        </a>
-                    </article>
-                <% } %>
+            <% if (locals.isLogged && locals.currentUser.id == data.sellerID) { %>
+            <a class="btn" href="/products/db/<%= data.id %>/edit "> Editar/eliminar producto</a>
+            <% } else {%>
+            <div>
+              <input class="btn" type="button" value="Agregar a Carrito">
+              <input class="btn" type="button" value="Compra rápida">
             </div>
-        </section>
-    </main>
-    <%- include("../partials/footer.ejs") %> 
+            <% } %>
+          </form>
+        </div>
+      </article>
+      <div class="seller-info">
+        <h3>Información del vendedor</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta deleniti ipsum doloremque? Ab, nihil voluptatibus tempore alias doloremque vel adipisci quia et, praesentium corrupti accusantium quo ut dolor laboriosam magni!</p>
+      </div>
+      <div class="product-description">
+        <h3>Descripción del producto</h3>
+        <p> <%- data.description %> </p>
+    </section>
+
+    <section class="products">
+      <h3>Te puede interesar</h3>
+      <div class="product-container flex-row">
+        <% for( let i = 0; i < 4; i++ ) { %>
+        <article>
+          <a href="/products/db/<%= productData[i].id %> ">
+            <img src="/images/products/<%= productData[i].image %> " alt="Imagen de <%= productData[i].name %> ">
+            <div class="product-card">
+              <div class="flex-row">
+                <p class="price"> $<%= productData[i].price %> </p>
+                <p class="discount"><%= productData[i].discount? productData[i].discount + " off" : " " %> </p>
+              </div>
+              <h3 class="description"><%= productData[i].name %></h3>
+            </div>
+
+          </a>
+        </article>
+        <% } %>
+      </div>
+    </section>
+  </main>
+  <%- include("../partials/footer.ejs") %>
 </body>
+
 </html>

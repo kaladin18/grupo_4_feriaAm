@@ -1,36 +1,36 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.4em;
+  text-decoration: none;
+  color: white;
+  font-size: 1.4em;
 }
-html{
-    font-size: 62.5%;
+html {
+  font-size: 62.5%;
 }
 body {
-    font-family: var(--roboto);
-    background-color: var(--gris-claro);
+  font-family: var(--roboto);
+  background-color: var(--gris-claro);
 }
 .flex-row {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
 }
 
 h3 {
-    font-size: var(--title-md);
+  font-size: var(--title-md);
 }
 h4 {
-    font-size: var(--title-md);
+  font-size: var(--title-md);
 }
 p {
-    font-size: var(--text-sm);
+  font-size: var(--text-sm);
 }
-img{
-    width: 100%;
+img {
+  width: 100%;
 }
