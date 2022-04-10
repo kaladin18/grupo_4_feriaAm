@@ -18,5 +18,15 @@
   "userType": "buyer",
   "password": "$2a$10$fRQSUcAp6qN3Am.k1VAtue.gGejXHso/PfTEKKME4FY7ZT1AQUKGe",
   "image": "1649145106892._img_.jpg"
+ },
+ {
+  "id": 3,
+  "name": "brenda",
+  "lastName": "cistriano",
+  "email": "breen_mica@hotmail.com",
+  "birthday": "1999-02-10",
+  "userType": "buyer",
+  "password": "$2a$10$MHg3D8P9h8nwFR0QJk7ws.SnLhQ910.BYjFvFW0wJvFsHJRcsMajW",
+  "image": "1649547330838._img_.jpg"
  }
 ]

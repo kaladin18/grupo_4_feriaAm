@@ -1,0 +1,15 @@
+[
+ {
+  "sellerId": 3
+ },
+ {
+  "product-amount": "1",
+  "color": "Rojo",
+  "size": "S"
+ },
+ {
+  "product-amount": "3",
+  "color": "Beige",
+  "size": "42"
+ }
+]

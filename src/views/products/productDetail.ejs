@@ -22,7 +22,11 @@
           <h4> Precio unitario: <%- data.price %> </h4>
 
 
-          <form action="/products/detail" method="POST" enctype="application/x-www-form-urlencoded">
+          <form action="/products/db/<%= data.id %>" method="POST" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" name="price" id="price" value= <%= data.price %> >
+            <input type="hidden" name="name" id="name" value= <%= data.name %> >
+            <input type="hidden" name="discount" id="discount" value= <%= data.discount %> >
+            <input type="hidden" name="id" id="id" value= <%= data.id %> >
 
             <h4>Disponibles: <%- data.stock %> </h4>
             <select name="product-amount" id="product-amount">
@@ -48,7 +52,7 @@
             <a class="btn" href="/products/db/<%= data.id %>/edit "> Editar/eliminar producto</a>
             <% } else {%>
             <div>
-              <input class="btn" type="button" value="Agregar a Carrito">
+              <button class="btn" type="submit" value="Agregar a carrito"></button>
               <input class="btn" type="button" value="Compra rápida">
             </div>
             <% } %>

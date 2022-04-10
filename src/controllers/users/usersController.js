@@ -50,6 +50,19 @@ module.exports = {
     };
     delete user.rePassword;
     User.create(user);
+    
+    let usuarioRegistrado = User.findByField('email', userData.email);
+
+    let dataId = [{sellerId: usuarioRegistrado.id}];
+
+    let dataCart = JSON.stringify(dataId);
+
+    fs.writeFile(path.join(__dirname, '../../data/carts/cart' + usuarioRegistrado.id), dataCart, 
+      function(err, result) {
+          if (err) 
+          console.log('error', err);
+        });
+
     res.render("users/registerSuccess", {
       title: "Bienvenido!",
       newUserName: userData.name,

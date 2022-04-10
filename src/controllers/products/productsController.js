@@ -11,7 +11,16 @@ module.exports = {
     });
   },
   cart: function (req, res) {
-    res.render("products/productCart", { title: "Tu carrito" });
+    let usuarioLogueado = req.session.loggedUser;
+    let cart = Product.getCartData(usuarioLogueado.id);
+    res.render("products/productCart", { title: "Tu carrito", data: cart });
+  },
+  addToCart: function (req,res) {
+    productoAgregar = req.body;
+    console.log(productoAgregar);
+    let usuarioLogueado = req.session.loggedUser;
+    Product.addToCart(productoAgregar, usuarioLogueado.id);
+    res.redirect('/');
   },
   detail: function (req, res) {
     let allProducts = Product.findAll();

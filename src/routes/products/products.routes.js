@@ -18,5 +18,6 @@ router.get(
 );
 router.put("/db/:id", productsController.editPUT);
 router.delete("/db/:id", productsController.deleteProduct);
+router.post("/db/:id", productsController.addToCart);
 
 module.exports = router;
