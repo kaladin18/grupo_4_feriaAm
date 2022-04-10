@@ -51,13 +51,13 @@ module.exports = {
     delete user.rePassword;
     User.create(user);
     
-    let usuarioRegistrado = User.findByField('email', userData.email);
+    let registeredUser = User.findByField('email', userData.email);
 
-    let dataId = [{sellerId: usuarioRegistrado.id}];
+    let buyerId = [{sellerId: registeredUser.id}];
 
-    let dataCart = JSON.stringify(dataId);
+    let dataCart = JSON.stringify(buyerId);
 
-    fs.writeFile(path.join(__dirname, '../../data/carts/cart' + usuarioRegistrado.id), dataCart, 
+    fs.writeFile(path.join(__dirname, '../../data/carts/cart' + registeredUser.id), dataCart, 
       function(err, result) {
           if (err) 
           console.log('error', err);

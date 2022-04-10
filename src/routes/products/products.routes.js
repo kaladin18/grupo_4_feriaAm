@@ -6,7 +6,7 @@ const productSellerAuthMiddleware = require("../../middlewares/productSellerAuth
 const router = express.Router();
 
 router.get("/", productsController.list);
-router.get("/cart", productsController.cart);
+router.get("/cart", authMiddleware, productsController.cart);
 router.get("/db/:id", productsController.detail);
 //creacion y edicion de productos
 router.get("/create", authMiddleware, productsController.create);
@@ -18,6 +18,6 @@ router.get(
 );
 router.put("/db/:id", productsController.editPUT);
 router.delete("/db/:id", productsController.deleteProduct);
-router.post("/db/:id", productsController.addToCart);
+router.post("/db/:id", authMiddleware, productsController.addToCart);
 
 module.exports = router;

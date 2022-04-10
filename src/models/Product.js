@@ -4,10 +4,9 @@ const path = require("path");
 const Product = {
   fileName: "../data/products.json",
 
-
   getCartData: function (id) {
     return JSON.parse(
-      fs.readFileSync(path.join(__dirname, '../data/carts/cart' + id), "utf-8")
+      fs.readFileSync(path.join(__dirname, "../data/carts/cart" + id), "utf-8")
     );
   },
 
@@ -19,7 +18,7 @@ const Product = {
 
   writeCartData: function (data, id) {
     fs.writeFileSync(
-      path.join(__dirname, '../data/carts/cart' + id),
+      path.join(__dirname, "../data/carts/cart" + id),
       JSON.stringify(data, null, " ")
     );
   },
@@ -85,12 +84,10 @@ const Product = {
   },
 
   addToCart: function (producto, id) {
-      let cart = this.getCartData(id);
-      cart.push(producto);
-      console.log(id);
-      this.writeCartData(cart, id);
-    },
-  };
-
+    let cart = this.getCartData(id);
+    cart.push(producto);
+    this.writeCartData(cart, id);
+  },
+};
 
 module.exports = Product;

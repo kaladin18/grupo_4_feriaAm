@@ -11,15 +11,15 @@ module.exports = {
     });
   },
   cart: function (req, res) {
-    let usuarioLogueado = req.session.loggedUser;
-    let cart = Product.getCartData(usuarioLogueado.id);
+    let loggedUser = req.session.loggedUser;
+    let cart = Product.getCartData(loggedUser.id);
     res.render("products/productCart", { title: "Tu carrito", data: cart });
   },
   addToCart: function (req,res) {
-    productoAgregar = req.body;
-    console.log(productoAgregar);
-    let usuarioLogueado = req.session.loggedUser;
-    Product.addToCart(productoAgregar, usuarioLogueado.id);
+    producToAdd = req.body;
+    console.log(productToAdd);
+    let loggedUser = req.session.loggedUser;
+    Product.addToCart(productToAdd, loggedUser.id);
     res.redirect('/');
   },
   detail: function (req, res) {
