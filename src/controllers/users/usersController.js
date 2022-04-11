@@ -19,6 +19,7 @@ module.exports = {
   },
 
   registerProcess: function (req, res) {
+    console.log(validationResult(req));
     let errors = validationResult(req);
     let oldData = req.body;
     if (!errors.isEmpty()) {
@@ -50,25 +51,63 @@ module.exports = {
     };
     delete user.rePassword;
     User.create(user);
+
+    //creacion de carrito
+    if (userData.userType == "buyer") {
+      User.createCart(userData);
+    };
     
-    let registeredUser = User.findByField('email', userData.email);
-
-    let buyerId = [{sellerId: registeredUser.id}];
-
-    let dataCart = JSON.stringify(buyerId);
-
-    fs.writeFile(path.join(__dirname, '../../data/carts/cart' + registeredUser.id), dataCart, 
-      function(err, result) {
-          if (err) 
-          console.log('error', err);
-        });
+   
 
     res.render("users/registerSuccess", {
       title: "Bienvenido!",
       newUserName: userData.name,
     });
   },
+  shopRegister: function (req, res) {
+    res.render("users/shopRegister");
+  },
+  shopRegisterProcess: function (req, res) {
+    console.log(validationResult(req));
+    let errors = validationResult(req);
+    let oldData = req.body;
+    if (!errors.isEmpty()) {
+      return res.render("users/shops/register", {
+        title: "Error en la registracion",
+        errors: errors.mapped(),
+        oldData: oldData,
+      });
+    }
+    let userInDB = User.findByField("email", req.body.email);
 
+    if (userInDB) {
+      return res.render("users/register", {
+        title: "Error en la registracion",
+        errors: {
+          email: {
+            msg: "Este email ya está registrado",
+          },
+        },
+        oldData: oldData,
+      });
+    }
+
+    let userData = req.body;
+    let user = {
+      ...userData,
+      password: encryptPassword(userData.password),
+      image: req.file.filename,
+    };
+    delete user.rePassword;
+    User.create(user);
+    
+   
+
+    res.render("users/registerSuccess", {
+      title: "Bienvenido!",
+      newUserName: userData.name,
+    });
+  },
   //LOGIN
   login: function (req, res) {
     res.render("users/login", { title: "Iniciar sesión" });
@@ -113,7 +152,7 @@ module.exports = {
 
   //Logout
   logout: function (req, res) {
-    req.clearCookie("userEmail");
+    res.clearCookie("userEmail");
     req.session.destroy();
     res.locals.currentUser = null;
     return res.redirect("/");

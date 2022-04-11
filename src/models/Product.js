@@ -45,12 +45,23 @@ const Product = {
 
   create: function (productData) {
     let allProducts = this.findAll();
-
+    let color = productData.productColor.split(" ");
+    let size = productData.productSize.split(" ");
     let newproduct = {
       id: this.generateId(),
-      ...productData,
+      name : productData.productName,
+      description : productData.productDescription,
+      type : productData.productState,
+      category : productData.productCategory,
+      size : size,
+      color : color,
+      price : productData.productPrice,
+      discount: null,
+      stock : productData.productStock,
+      image: productData.image,
+      sellerID: productData.sellerId
+      
     };
-    console.log(allProducts);
     allProducts.push(newproduct);
     this.writeData(allProducts);
   },

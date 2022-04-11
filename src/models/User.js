@@ -53,5 +53,19 @@ const User = {
     let userFound = allUsers.find((user) => user[field] == text);
     return userFound;
   },
+  createCart: function (userData) {
+    let registeredUser = this.findByField("email", userData.email);
+
+    let buyerId = [{ sellerId: registeredUser.id }];
+
+    let dataCart = JSON.stringify(buyerId);
+    fs.writeFile(
+      path.join(__dirname, "../data/carts/cart" + registeredUser.id),
+      dataCart,
+      function (err, result) {
+        if (err) console.log("error", err);
+      }
+    );
+  },
 };
 module.exports = User;

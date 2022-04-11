@@ -3,7 +3,14 @@
     min-height: 100vh;
     background-color: #ebebeb;
 }
-  
+.register-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.register-top a {
+    color: blue;
+}
 .register h4 {
     width: 90%;
     font-size: var(--title-md);

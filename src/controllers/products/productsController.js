@@ -15,12 +15,12 @@ module.exports = {
     let cart = Product.getCartData(loggedUser.id);
     res.render("products/productCart", { title: "Tu carrito", data: cart });
   },
-  addToCart: function (req,res) {
+  addToCart: function (req, res) {
     producToAdd = req.body;
     console.log(productToAdd);
     let loggedUser = req.session.loggedUser;
     Product.addToCart(productToAdd, loggedUser.id);
-    res.redirect('/');
+    res.redirect("/");
   },
   detail: function (req, res) {
     let allProducts = Product.findAll();
@@ -35,19 +35,28 @@ module.exports = {
   create: function (req, res) {
     res.render("products/productCreate", { title: "Subir nuevo producto" });
   },
-  editView: function (req, res) {
+  createProcess: function (req, res) {
+    let productData = req.body;
+    let product = {
+      ...productData,
+      image: req.file.filename,
+    };
+    Product.create(product);
+    res.redirect("/users/profile")
+  }, 
+  edit: function (req, res) {
     let data = Product.findByPK(req.params.id);
     res.render("products/productEdit", {
       title: "Edición de producto",
       data: data,
     });
   },
-  editPUT: function (req, res) {
+  editProcess: function (req, res) {
     Product.edit(req.body);
 
     res.redirect("/products/db/" + req.body.productID);
   },
-  deleteProduct: function (req, res) {
+  deleteProcess: function (req, res) {
     listaProductos = Product.findAll().filter(function (producto) {
       return producto.id != "" + req.params.id;
     });

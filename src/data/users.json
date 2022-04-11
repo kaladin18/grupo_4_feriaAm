@@ -5,7 +5,7 @@
   "lastName": "Santa María ",
   "email": "francosantamaria.sm@gmail.com",
   "birthday": "1995-06-18",
-  "userType": "buyer",
+  "userType": "seller",
   "password": "$2a$10$XaT1sFzLvV1la1he5JyXruZRz0PChDlB1Q9yhtNahRak/.KVTv1mq",
   "image": "1649141426250._img_.jpg"
  },
@@ -15,18 +15,37 @@
   "lastName": "Alvarez",
   "email": "jalvarez@gmail.com",
   "birthday": "1990-05-04",
-  "userType": "buyer",
+  "userType": "seller",
   "password": "$2a$10$fRQSUcAp6qN3Am.k1VAtue.gGejXHso/PfTEKKME4FY7ZT1AQUKGe",
   "image": "1649145106892._img_.jpg"
  },
  {
   "id": 3,
-  "name": "brenda",
-  "lastName": "cistriano",
+  "name": "Brenda",
+  "lastName": "Cistriano",
   "email": "breen_mica@hotmail.com",
   "birthday": "1999-02-10",
   "userType": "buyer",
   "password": "$2a$10$MHg3D8P9h8nwFR0QJk7ws.SnLhQ910.BYjFvFW0wJvFsHJRcsMajW",
   "image": "1649547330838._img_.jpg"
+ },
+ {
+  "id": 4,
+  "name": "Fernanda",
+  "lastName": "Jimenez",
+  "email": "fjimenez@gmail.com",
+  "birthday": "1990-11-02",
+  "userType": "buyer",
+  "password": "$2a$10$lYM1UDgbIN67nN.gCSCM5u0geeNkyLtB4QZqub/FlCuHyvt8jvGse",
+  "image": "1649644030764._img_.png"
+ },
+ {
+  "id": 5,
+  "isShop": "",
+  "name": "El Emporio de la Zapatilla",
+  "email": "emporiodelazapatilla@gmail.com",
+  "userType": "seller",
+  "password": "$2a$10$SdPxR8Rz3TO8ZZ7Xfxxeq.vs7a91lChtXKxSZTLS.yek4rDHlwZeS",
+  "image": "1649645062282._img_.jpg"
  }
 ]

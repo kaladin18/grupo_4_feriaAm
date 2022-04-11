@@ -23,10 +23,10 @@
 
 
           <form action="/products/db/<%= data.id %>" method="POST" enctype="application/x-www-form-urlencoded">
-            <input type="hidden" name="price" id="price" value= <%= data.price %> >
-            <input type="hidden" name="name" id="name" value= <%= data.name %> >
-            <input type="hidden" name="discount" id="discount" value= <%= data.discount %> >
-            <input type="hidden" name="id" id="id" value= <%= data.id %> >
+            <input type="hidden" name="price" id="price" value=<%= data.price %>>
+            <input type="hidden" name="name" id="name" value=<%= data.name %>>
+            <input type="hidden" name="discount" id="discount" value=<%= data.discount %>>
+            <input type="hidden" name="id" id="id" value=<%= data.id %>>
 
             <h4>Disponibles: <%- data.stock %> </h4>
             <select name="product-amount" id="product-amount">

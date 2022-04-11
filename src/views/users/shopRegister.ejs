@@ -9,16 +9,16 @@
       <h4>
         ¡REGISTRATE A CONTINUACIÓN!
       </h4>
-      <p>Página de registro de compradores y vendedores particulares</p>
+      <p>Página de registro de tiendas¿ Sos comprador o vendedor particular?</p>
       <div>
-        <p>¿Querés registrar tu tienda?</p>
-        <a href="/users/shops/register">Ingresá aquí</a>
+        <a href="/users/register">Registrate aquí</a>
       </div>
     </div>
-
-    <form action="/users/register" method="POST" enctype="multipart/form-data">
+    
+    <form action="/users/shops/register" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="isShop" value"true">
       <div class="nombre">
-        <label for="name">Ingresá tu nombre</label>
+        <label for="name">Ingresá el nombre de tu tienda</label>
         <% if (locals.errors && errors.name) { %>
         <div class="show-error">
           <%= errors.name.msg %>
@@ -26,18 +26,9 @@
         <% } %>
         <input type="text" name="name" id="name" placeholder="Nombre" class="inputt" value="<%= locals.oldData ? oldData.name : null%>">
 
-
-        <label for="name">Ingresá tu apellido</label>
-        <% if (locals.errors && errors.lastName) { %>
-        <div class="show-error">
-          <%= errors.lastName.msg %>
-        </div>
-        <% } %>
-        <input type="text" name="lastName" id="lastName" placeholder="Apellido" class="inputt" value="<%= locals.oldData ? oldData.lastName : null%>">
-
       </div>
       <div class="email">
-        <label for="email"> Ingresá tu email </label>
+        <label for="email"> Ingresá el email de tu tienda</label>
         <% if (locals.errors && errors.email) { %>
         <div class="show-error">
           <%= errors.email.msg %>
@@ -55,37 +46,11 @@
         </div>
         <% } %>
       </div>
-      <div class="formGroup">
-        <label for="birthday" class="labelTitle">Fecha de Nacimiento</label>
-        <% if (locals.errors && errors.birthday) { %>
-        <div class="show-error">
-          <%= errors.birthday.msg %>
-        </div>
-        <% } %>
-        <input type="date" name="birthday" id="birthday" class="inputt" value="<%= locals.oldData ? oldData.birthday : null%>">
-
-      </div>
       
-     
-      <div class="userType">
-        <label for="userType"> ¿Qué tipo de cuenta querés? </label>
+      <input type="hidden" name="userType" value="seller">
+    
+
       
-        <% if (locals.errors && errors.userType) { %>
-        <div class="show-error">
-          <%= errors.userType.msg %>
-        </div>
-        <% } %>
-        <div class="userType1">
-          <label for="userType">Comprador </label>
-          <input type="radio" name="userType" id="buyer" value="buyer" <% if (locals.oldData && oldData.userType == "buyer") {%> checked <% } %>>
-        </div>
-        <div class="userType1">
-          <label for="userType">Vendedor</label>
-          <input type="radio" name="userType" id="seller" value="seller" <% if (locals.oldData && oldData.userType == "seller") {%> checked <% } %>>
-        </div>
-
-
-      </div>
       <div class="contraseña">
         <label for="password"> Ingresá tu contraseña (Debe contener al menos 1 mayúscula, una minúscula y un número, y la longitud no debe ser menor a 8 caracteres). </label>
         <% if (locals.errors && errors.password) { %>

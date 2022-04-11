@@ -80,5 +80,45 @@
   ],
   "stock": 1,
   "sellerID": 1
+ },
+ {
+  "id": 5,
+  "name": "Sombrero de vaquero",
+  "description": "Da poderes misticos",
+  "type": "new",
+  "category": "clothes",
+  "size": [
+   "45",
+   "46",
+   "47"
+  ],
+  "color": [
+   "Blanco",
+   "Negro",
+   "Azul"
+  ],
+  "price": "3500",
+  "discount": null,
+  "stock": "5",
+  "image": "1649642171553._img_.webp",
+  "sellerID": "1"
+ },
+ {
+  "id": 6,
+  "name": "Vestido de fiesta",
+  "description": "Siempre al top con este vestido. Ahora a un precio especial!",
+  "type": "new",
+  "category": "clothes",
+  "size": [
+   "6"
+  ],
+  "color": [
+   "Negro"
+  ],
+  "price": "25000",
+  "discount": null,
+  "stock": "1",
+  "image": "1649642385049._img_.jpg",
+  "sellerID": "1"
  }
 ]
