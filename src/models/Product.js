@@ -6,7 +6,7 @@ const Product = {
 
   getCartData: function (id) {
     return JSON.parse(
-      fs.readFileSync(path.join(__dirname, "../data/carts/cart" + id), "utf-8")
+      fs.readFileSync(path.join(__dirname, "../data/carts/cart" + id+".json"), "utf-8")
     );
   },
 
@@ -45,8 +45,8 @@ const Product = {
 
   create: function (productData) {
     let allProducts = this.findAll();
-    let color = productData.productColor.split(" ");
-    let size = productData.productSize.split(" ");
+    let color = productData.productColor.split("-");
+    let size = productData.productSize.split("-");
     let newproduct = {
       id: this.generateId(),
       name : productData.productName,

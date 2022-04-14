@@ -60,7 +60,7 @@ const User = {
 
     let dataCart = JSON.stringify(buyerId);
     fs.writeFile(
-      path.join(__dirname, "../data/carts/cart" + registeredUser.id),
+      path.join(__dirname, "../data/carts/cart" + registeredUser.id+".json"),
       dataCart,
       function (err, result) {
         if (err) console.log("error", err);

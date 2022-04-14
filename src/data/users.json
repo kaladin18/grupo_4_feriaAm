@@ -38,14 +38,5 @@
   "userType": "buyer",
   "password": "$2a$10$lYM1UDgbIN67nN.gCSCM5u0geeNkyLtB4QZqub/FlCuHyvt8jvGse",
   "image": "1649644030764._img_.png"
- },
- {
-  "id": 5,
-  "isShop": "",
-  "name": "El Emporio de la Zapatilla",
-  "email": "emporiodelazapatilla@gmail.com",
-  "userType": "seller",
-  "password": "$2a$10$SdPxR8Rz3TO8ZZ7Xfxxeq.vs7a91lChtXKxSZTLS.yek4rDHlwZeS",
-  "image": "1649645062282._img_.jpg"
  }
 ]

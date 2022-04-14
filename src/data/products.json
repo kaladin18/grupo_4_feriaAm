@@ -120,5 +120,26 @@
   "stock": "1",
   "image": "1649642385049._img_.jpg",
   "sellerID": "1"
+ },
+ {
+  "id": 7,
+  "name": "Pantalones ",
+  "description": "Es un pantalon",
+  "type": "new",
+  "category": "clothes",
+  "size": [
+   "42",
+   "44",
+   "46"
+  ],
+  "color": [
+   "Marrón",
+   " Azul y negro"
+  ],
+  "price": "5000",
+  "discount": null,
+  "stock": "6",
+  "image": "1649889234914._img_.jpg",
+  "sellerID": "1"
  }
 ]
