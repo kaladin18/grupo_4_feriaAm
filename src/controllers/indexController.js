@@ -1,11 +1,13 @@
+const db = require("../database/models");
 const Product = require("../models/Product");
 
 module.exports = {
   index: function (req, res) {
-    let productData = Product.getData();
-    res.render("index", {
-      title: "Bienvenidos a la Feria",
-      productData: productData,
+    db.Product.findAll({ limit: 4 }).then((productData) => {
+      res.render("index", {
+        title: "Bienvenidos a la Feria",
+        productData: productData,
+      });
     });
   },
 };

@@ -12,15 +12,16 @@
         </div>
         <div class="product-detail">
           <h3 class="product-name"><%- data.name %> </h3>
-          <% if (data.type == "new") { %>
+          <% if (data.type == 1) { %>
           <p>Nuevo</p>
           <% } else { %>
           <p>Usado</p>
           <% } %>
-
-          <h4 class="seller-name">Nombre vendedor/tienda</h4>
           <h4> Precio unitario: <%- data.price %> </h4>
-
+          <div class="seller-info">
+            <h3>Información del vendedor</h3>
+            <p>Nombre: <%= data.vendedor.name %> <%= data.vendedor.last_name %>  </p>
+          </div>
 
           <form action="/products/db/<%= data.id %>" method="POST" enctype="application/x-www-form-urlencoded">
             <input type="hidden" name="price" id="price" value=<%= data.price %>>
@@ -28,27 +29,14 @@
             <input type="hidden" name="discount" id="discount" value=<%= data.discount %>>
             <input type="hidden" name="id" id="id" value=<%= data.id %>>
 
-            <h4>Disponibles: <%- data.stock %> </h4>
+            <h4>Disponibles: <%- data.categoria.stock %> </h4>
             <select name="product-amount" id="product-amount">
               <option value="">Selecciona Cantidad</option>
-              <% for (let i = 1; i <= data.stock; i++) { %>
+              <% for (let i = 1; i <= data.categoria.stock; i++) { %>
               <option value=<%= i %>> <%= i %> </option>
               <% } %>
             </select>
-            <div>
-              <select name="color" id="color">
-                <% data.color.forEach(function (item, index) {%>
-                <option value=<%- data.color[index] %>> <%- data.color[index]  %> </option>
-                <% }) %>
-              </select>
-
-              <select name="size" id="size">
-                <% data.size.forEach(function (item, index) {%>
-                <option value=<%- data.size[index] %>> <%- data.size[index]  %> </option>
-                <% }) %>
-              </select>
-            </div>
-            <% if (locals.isLogged && locals.currentUser.id == data.sellerID) { %>
+            <% if (locals.isLogged && locals.currentUser.id == data.seller_id) { %>
             <a class="btn" href="/products/db/<%= data.id %>/edit "> Editar/eliminar producto</a>
             <% } else {%>
             <div>
@@ -59,35 +47,15 @@
           </form>
         </div>
       </article>
-      <div class="seller-info">
-        <h3>Información del vendedor</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta deleniti ipsum doloremque? Ab, nihil voluptatibus tempore alias doloremque vel adipisci quia et, praesentium corrupti accusantium quo ut dolor laboriosam magni!</p>
-      </div>
+      <div class="product-details">
+        <h3>Detalles del producto </h3>
       <div class="product-description">
-        <h3>Descripción del producto</h3>
         <p> <%- data.description %> </p>
-    </section>
-
-    <section class="products">
-      <h3>Te puede interesar</h3>
-      <div class="product-container flex-row">
-        <% for( let i = 0; i < 4; i++ ) { %>
-        <article>
-          <a href="/products/db/<%= productData[i].id %> ">
-            <img src="/images/products/<%= productData[i].image %> " alt="Imagen de <%= productData[i].name %> ">
-            <div class="product-card">
-              <div class="flex-row">
-                <p class="price"> $<%= productData[i].price %> </p>
-                <p class="discount"><%= productData[i].discount? productData[i].discount + " off" : " " %> </p>
-              </div>
-              <h3 class="description"><%= productData[i].name %></h3>
-            </div>
-
-          </a>
-        </article>
-        <% } %>
       </div>
+    </div>
     </section>
+
+    
   </main>
   <%- include("../partials/footer.ejs") %>
 </body>

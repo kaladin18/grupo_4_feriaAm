@@ -1,15 +1,20 @@
 const fs = require("fs");
 const path = require("path");
-const Product = require("../../models/Product");
+const db = require("../../database/models");
+const sequelize = db.sequelize;
 
 module.exports = {
   list: function (req, res) {
-    listaProductos = Product.findAll();
-    res.render("products/productsList", {
-      title: "Productos",
-      productList: listaProductos,
+    db.Product.findAll({
+      include: [{ association: "vendedor" }, { association: "categoria" }],
+    }).then((products) => {
+      res.render("products/productsList", {
+        title: "Productos",
+        productList: products,
+      });
     });
   },
+
   cart: function (req, res) {
     let loggedUser = req.session.loggedUser;
     let cart = Product.getCartData(loggedUser.id);
@@ -23,13 +28,13 @@ module.exports = {
     res.redirect("/");
   },
   detail: function (req, res) {
-    let allProducts = Product.findAll();
-    let data = Product.findByPK(req.params.id);
-    res.render("products/productDetail", {
-      title: "Detalle de producto",
-      data: data,
-      lista: data.size,
-      productData: allProducts,
+    db.Product.findByPk(req.params.id, {
+      include: [{ association: "categoria" }, { association: "vendedor" }],
+    }).then((data) => {
+      res.render("products/productDetail", {
+        title: "Detalle de producto",
+        data: data,
+      });
     });
   },
   create: function (req, res) {
@@ -37,24 +42,67 @@ module.exports = {
   },
   createProcess: function (req, res) {
     let productData = req.body;
-    let product = {
-      ...productData,
-      image: req.file.filename,
-    };
-    Product.create(product);
-    res.redirect("/users/profile")
-  }, 
+    db.Category.create({
+      state: productData.productState,
+      class: productData.productClass,
+      age_group: productData.productAgeGroup,
+      subclass: productData.productSubClass,
+      color: productData.productColor,
+      size: productData.productSize,
+      stock: productData.productStock,
+    })
+      .then((newCategory) =>
+        db.Product.create({
+          name: productData.productName,
+          description: productData.productDescription,
+          price: productData.productPrice,
+          seller_id: req.session.loggedUser.id,
+          category_id: newCategory.id,
+          image: req.file.filename,
+        })
+      )
+      .then(() => res.redirect("/users/profile"));
+  },
   edit: function (req, res) {
-    let data = Product.findByPK(req.params.id);
-    res.render("products/productEdit", {
-      title: "Edición de producto",
-      data: data,
-    });
+    db.Product.findByPk(req.params.id, {
+      include: [{ association: "categoria" }, { association: "vendedor" }],
+    }).then((data) =>
+      res.render("products/productEdit", {
+        title: "Edición de producto",
+        data: data,
+      })
+    );
   },
   editProcess: function (req, res) {
-    Product.edit(req.body);
-
-    res.redirect("/products/db/" + req.body.productID);
+    newData = req.body;
+    console.log(newData);
+    db.Category.update(
+      {
+        state: newData.productState,
+        class: newData.productClass,
+        age_group: newData.productAgeGroup,
+        subclass: newData.productSubClass,
+        color: newData.productColor,
+        size: newData.productSize,
+        stock: newData.productStock,
+      },
+      { where: { id: newData.categoryID } }
+    )
+      .then(() => {
+        db.Product.update(
+          {
+            name: newData.productName,
+            description: newData.productDescription,
+            price: newData.productPrice,
+          },
+          {
+            where: { id: req.params.id },
+          }
+        );
+      })
+      .then(() => {
+        res.redirect("/products/db/" + req.params.id);
+      });
   },
   deleteProcess: function (req, res) {
     listaProductos = Product.findAll().filter(function (producto) {

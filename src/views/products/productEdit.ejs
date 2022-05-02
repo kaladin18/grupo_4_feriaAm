@@ -5,8 +5,8 @@
 <body>
   <%- include ("../partials/header.ejs") %>
   <main>
-    <form class="product-edit" method="POST" action="/products/db/:id?_method=PUT">
-      <input type="hidden" id="productID" name="productID" value=<%- data.id %>>>
+    <form class="product-edit" method="POST" action="/products/db/<%= data.id %> ?_method=PUT">
+      <input type="hidden" name="categoryID" value=<%- data.category_id %>>>
       <label for="productName">Cambiar nombre: </label>
       <input type="text" name="productName" id="productName" value="<%- data.name %> ">
       <textarea name="productDescription" id="productDescription" cols="30" rows="10"><%- data.description %> </textarea>
@@ -14,31 +14,34 @@
       <input type="file" name="productImage" id="productImage">
       <div class="product-type">
 
-        <h3>Estado actual: <%- data.state %> </h3>
+        <h3>Estado: </h3>
         <div class="product-state">
-          <label for="productState"><input type="radio" name="productState" id="new" value="new" <% if (data.type == "new") { %> checked="checked" <% } %>> Nuevo</label>
+          <label for="productState"><input type="radio" name="productState" value= 1 <% if (data.categoria.state == 1) { %> checked="checked" <% } %>> Nuevo</label>
 
-          <label for="productState"><input type="radio" name="productState" id="used" value="used" <% if (data.type == "used") { %> checked="checked" <% } %>> Usado</label>
+          <label for="productState"><input type="radio" name="productState" value= 0 <% if (data.categoria.state == 0) { %> checked="checked" <% } %>> Usado</label>
         </div>
-        <h3>Categoria actual: </h3>
+        <h3>Otros datos: </h3>
         <div class="product-category">
-          <label for="productCategory"><input type="radio" name="productCategory" id="clothes" value="clothes" <% if (data.category == "clothes") { %> checked="checked" <% } %>> Ropa</label>
-          <label for="productCategory"><input type="radio" name="productCategory" id="shoes" value="shoes" <% if (data.category == "shoes") { %> checked="checked" <% } %>> Calzado</label>
+          <label for="productClass"><input type="radio" name="productClass" value="clothes" <% if (data.categoria.class == "clothes") { %> checked="checked" <% } %>> Ropa</label>
+          <label for="productClass"><input type="radio" name="productClass" value="shoes" <% if (data.categoria.class == "shoes") { %> checked="checked" <% } %>> Calzado</label>
         </div>
-        <label for="productSize">Talles disponibles</label>
-        <% let i = 1 %> ;
-        <% data.size.forEach(function (item, index) {%>
-        <input type="text" name="productSize" id=<%- "productSize" + i %> value=<%- data.size[index] %>>
-        <% i++; %>
-        <% }) %>
+        <div class="product-category">
+          <label for="productsubClass"><input type="radio" name="productSubClass" value="sports" <% if (data.categoria.subclass == "sports") { %> checked="checked" <% } %>> Deportiva</label>
+          <label for="productsubClass"><input type="radio" name="productSubClass" value="casual" <% if (data.categoria.subclass == "casual") { %> checked="checked" <% } %>> Casual</label>
+        </div>
+        <div class="product-category">
+          <label for="productAgeGroup"><input type="radio" name="productAgeGroup" value="adult" <% if (data.categoria.age_group == "adult") { %> checked="checked" <% } %>> Adultos</label>
+          <label for="productAgeGroup"><input type="radio" name="productAgeGroup" value="children" <% if (data.categoria.age_group == "children") { %> checked="checked" <% } %>> Niños</label>
+        </div>
+        <label for="productSize">Talle</label>
 
-        <label for="productColor">Colores disponibles</label>
-        <% let j = 1 %> ;
-        <% data.color.forEach(function (item, index) {%>
-        <input type="text" name="productColor" id=<%- "productColor" + i %> value=<%- data.color[index] %>>
-        <% i++; %>
-        <% }) %>
+        <input type="text" name="productSize" value=<%- data.categoria.size %>>
 
+
+        <label for="productColor">Color</label>
+        <input type="text" name="productColor" value=<%- data.categoria.color %>>
+        <label for="productStock"><input type="number" name="productStock" value=<%= data.categoria.stock %>> Stock disponible </label>
+      </div>
       </div>
       <div class="price">
         <label for="productPrice">Precio</label>

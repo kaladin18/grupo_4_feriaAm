@@ -6,7 +6,7 @@
   <%- include ("../partials/header.ejs") %>
   <main>
     <form class="product-create" action="/products/create" method="POST" enctype="multipart/form-data">
-      
+
       <label for="productName">Nombre del producto: </label>
       <input type="text" name="productName" id="productName">
       <textarea name="productDescription" id="productDescription" cols="30" rows="10">Descripción del producto</textarea>
@@ -16,20 +16,27 @@
         <br>
         <h3>Estado: </h3>
         <div class="product-state">
-          <label for="productState"><input type="radio" name="productState" id="new" value="new"> Nuevo</label>
-          <label for="productState"><input type="radio" name="productState" id="used" value="used"> Usado</label>
+          <label for="productState"><input type="radio" name="productState" value=1> Nuevo</label>
+          <label for="productState"><input type="radio" name="productState" value=0> Usado</label>
         </div>
-        <h3>Categoria: </h3>
+        <h3>Tipo de articulo: </h3>
         <div class="product-category">
-          <label for="productCategory"><input type="radio" name="productCategory" id="clothes" value="clothes"> Ropa</label>
-          <label for="productCategory"><input type="radio" name="productCategory" id="shoes" value="shoes"> Calzado</label>
-        </div>
-        <label for="productSize"><input type="text" name="productSize" id="productSize"> Ingrese todos los talles disponibles con un guión medio (-) entre cada uno</label>
-        <label for="productColor"><input type="text" name="productColor" id="productColor"> Ingrese todos los colores disponibles con un guión medio (-) entre cada uno</label>
+          <label for="productClass"><input type="radio" name="productClass" value="clothes"> Ropa</label>
+          <label for="productClass"><input type="radio" name="productClass" value="shoes"> Calzado</label>
+        
+          <label for="productsubClass"><input type="radio" name="productSubClass" value="sports"> Deportiva</label>
+          <label for="productsubClass"><input type="radio" name="productSubClass" value="casual"> Casual</label>
+        
+
+        <label for="productAgeGroup"><input type="radio" name="productAgeGroup" value="adult"> Adultos</label>
+        <label for="productAgeGroup"><input type="radio" name="productAgeGroup" value="children"> Niños</label>
+
+        <label for="productSize"><input type="text" name="productSize" id="productSize"> Ingrese el talle</label>
+        <label for="productColor"><input type="text" name="productColor" id="productColor"> Ingrese el color</label>
         <label for="productStock"><input type="number" name="productStock" id="productStock"> Stock disponible </label>
       </div>
       <div class="product-price">
-        <label for="productPrice"> <input type="number" min="0.01" step="0.01" max="25000" name="productPrice" id="productPrice" value="00.01"> Precio por unidad</label>
+        <label for="productPrice"> <input type="number" min="0.01" step="0.01" max="25000" name="productPrice" id="productPrice" value="00.01"> Precio</label>
 
       </div>
       <input type="hidden" name="sellerId" value="<%= locals.currentUser.id %>">
