@@ -14,19 +14,19 @@ module.exports = {
       });
     });
   },
-
-  cart: function (req, res) {
-    let loggedUser = req.session.loggedUser;
-    let cart = Product.getCartData(loggedUser.id);
-    res.render("products/productCart", { title: "Tu carrito", data: cart });
-  },
-  addToCart: function (req, res) {
-    producToAdd = req.body;
-    console.log(productToAdd);
-    let loggedUser = req.session.loggedUser;
-    Product.addToCart(productToAdd, loggedUser.id);
-    res.redirect("/");
-  },
+//! FALTA CAMBIAR PARA QUE TRABAJE CON SEQUELIZE
+  // cart: function (req, res) {
+  //   let loggedUser = req.session.loggedUser;
+  //   let cart = Product.getCartData(loggedUser.id);
+  //   res.render("products/productCart", { title: "Tu carrito", data: cart });
+  // },
+  // addToCart: function (req, res) {
+  //   producToAdd = req.body;
+  //   console.log(productToAdd);
+  //   let loggedUser = req.session.loggedUser;
+  //   Product.addToCart(productToAdd, loggedUser.id);
+  //   res.redirect("/");
+  // },
   detail: function (req, res) {
     db.Product.findByPk(req.params.id, {
       include: [{ association: "categoria" }, { association: "vendedor" }],
@@ -104,11 +104,14 @@ module.exports = {
         res.redirect("/products/db/" + req.params.id);
       });
   },
+
+  //! EL DELETE ES PERMANENTE POR AHORA
   deleteProcess: function (req, res) {
-    listaProductos = Product.findAll().filter(function (producto) {
-      return producto.id != "" + req.params.id;
-    });
-    escribirJSON(listaProductos);
-    res.redirect("/products");
+    db.Product.findByPk(req.params.id).then((productToDelete) => {
+      db.Category.destroy({ where: { id: productToDelete.category_id } });
+    })
+    .then(() => {
+      res.redirect("/products");
+    })
   },
 };

@@ -4,6 +4,10 @@ const fs = require("fs");
 const path = require("path");
 const User = require("../../models/User");
 
+const db = require("../../database/models");
+const sequelize = db.sequelize;
+
+
 let encryptPassword = (password) => {
   return bcrypt.hashSync(password, 10);
 };
@@ -29,40 +33,34 @@ module.exports = {
         oldData: oldData,
       });
     }
-    let userInDB = User.findByField("email", req.body.email);
-
-    if (userInDB) {
-      return res.render("users/register", {
-        title: "Error en la registracion",
-        errors: {
-          email: {
-            msg: "Este email ya está registrado",
+    db.Seller.findOrCreate({
+      where: { email: req.body.email }, 
+      defaults: {
+        name: req.body.name,
+        last_name: req.body.lastName,
+        image: req.file.filename,
+        birthday: req.body.birthday,
+        password: encryptPassword(req.body.password)
+      }
+    }).then(([newUser, created]) => {
+      if(!created) {
+        return res.render("users/register", {
+          title: "Error en la registracion",
+          errors: {
+            email: {
+              msg: "Este email ya está registrado",
+            },
           },
-        },
-        oldData: oldData,
+          oldData: oldData,
+        });
+      }
+      res.render("users/registerSuccess", {
+        title: "Bienvenido!",
+        newUserName: req.body.name,
       });
-    }
-
-    let userData = req.body;
-    let user = {
-      ...userData,
-      password: encryptPassword(userData.password),
-      image: req.file.filename,
-    };
-    delete user.rePassword;
-    User.create(user);
-
-    //creacion de carrito
-    if (userData.userType == "buyer") {
-      User.createCart(userData);
-    };
-    
-   
-
-    res.render("users/registerSuccess", {
-      title: "Bienvenido!",
-      newUserName: userData.name,
     });
+
+    
   },
  
   //LOGIN
@@ -73,33 +71,37 @@ module.exports = {
   //proceso del login
   loginProcess: function (req, res) {
     let oldData = req.body;
-    let userToLogin = User.findByField("email", req.body.email);
-    if (userToLogin) {
-      if (comparePasswords(req.body.password, userToLogin.password)) {
-        delete userToLogin.password;
-        req.session.loggedUser = userToLogin;
-
-        if (req.body.rememberMe) {
-          res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
+    db.Seller.findOne({where: {email: req.body.email}})
+    .then((userToLogin) => {
+      if (userToLogin) {
+        if (comparePasswords(req.body.password, userToLogin.password)) {
+          delete userToLogin.password;
+          req.session.loggedUser = userToLogin;
+  
+          if (req.body.rememberMe) {
+            res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
+          }
+          return res.redirect("/");
         }
-        return res.redirect("/");
+        return res.render("users/login", {
+          errors: {
+            password: {
+              msg: "La contraseña es incorrecta",
+            },
+          },
+          oldData: oldData,
+        });
       }
       return res.render("users/login", {
         errors: {
-          password: {
-            msg: "La contraseña es incorrecta",
+          email: {
+            msg: "Este email no se encuentra registrado",
           },
         },
-        oldData: oldData,
       });
-    }
-    return res.render("users/login", {
-      errors: {
-        email: {
-          msg: "Este email no se encuentra registrado",
-        },
-      },
-    });
+    })
+
+   
   },
 
   //Perfil

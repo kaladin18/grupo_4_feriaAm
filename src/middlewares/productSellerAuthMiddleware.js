@@ -1,12 +1,13 @@
-const Product = require("../models/Product");
+const db = require("../database/models");
+const sequelize = db.sequelize;
 
 function productSellerAuthMiddleware(req, res, next) {
   let loggedUser = req.session.loggedUser;
-  let product = Product.findByPK(req.params.id);
-
-  if (loggedUser.id != product.sellerID) {
-    return res.redirect("/");
-  }
+  db.Product.findByPk(req.params.id).then((product) => {
+    if (loggedUser.id != product.seller_id) {
+      return res.redirect("/");
+    }
+  });
 
   next();
 }

@@ -49,6 +49,7 @@ module.exports = function (sequelize, dataTypes) {
     Category.hasOne(models.Product, {
       foreignKey: "category_id",
       as: "producto",
+      onDelete: "CASCADE"
     });
   };
   return Category;

@@ -47,10 +47,12 @@ module.exports = function (sequelize, dataTypes) {
     Product.belongsTo(models.Category, {
       foreignKey: "category_id",
       as: "categoria",
+      onDelete: "CASCADE"
     });
     Product.belongsTo(models.Seller, {
       foreignKey: "seller_id",
       as: "vendedor",
+      onDelete: "CASCADE"
     });
     Product.belongsToMany(models.Cart, {
       as: "cartForProduct",
