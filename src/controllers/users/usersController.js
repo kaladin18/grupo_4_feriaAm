@@ -3,6 +3,9 @@ const bcrypt = require("bcryptjs");
 const fs = require("fs");
 const path = require("path");
 const User = require("../../models/User");
+const db = require("../../database/models");
+const sequelize = db.sequelize;
+
 
 let encryptPassword = (password) => {
   return bcrypt.hashSync(password, 10);
@@ -19,7 +22,6 @@ module.exports = {
   },
 
   registerProcess: function (req, res) {
-    console.log(validationResult(req));
     let errors = validationResult(req);
     let oldData = req.body;
     if (!errors.isEmpty()) {
@@ -29,41 +31,34 @@ module.exports = {
         oldData: oldData,
       });
     }
-    let userInDB = User.findByField("email", req.body.email);
-
-    if (userInDB) {
-      return res.render("users/register", {
-        title: "Error en la registracion",
-        errors: {
-          email: {
-            msg: "Este email ya está registrado",
+    db.Seller.findOrCreate({
+      where: {email: req.body.email},
+      defaults: {
+        name: req.body.name,
+        last_name: req.body.lastName,
+        image: req.file.filename,
+        birthday: req.body.birthday,
+        password: encryptPassword(req.body.password)
+      }
+    }).then(([newUser, created]) => {
+      if (!created) {
+        res.render("users/register", {
+          title: "Error en la registración",
+          errors: {
+            email: {
+              msg: "Este email ya se encuentra registrado"}
           },
-        },
-        oldData: oldData,
+          oldData: oldData
+        })
+      }
+      res.render("users/registerSuccess", {
+        title: "Bienvenido!",
+        newUserName: newUser.name,
       });
-    }
-
-    let userData = req.body;
-    let user = {
-      ...userData,
-      password: encryptPassword(userData.password),
-      image: req.file.filename,
-    };
-    delete user.rePassword;
-    User.create(user);
-
-    //creacion de carrito
-    if (userData.userType == "buyer") {
-      User.createCart(userData);
-    };
+    })
     
-   
-
-    res.render("users/registerSuccess", {
-      title: "Bienvenido!",
-      newUserName: userData.name,
-    });
   },
+  
  
   //LOGIN
   login: function (req, res) {
