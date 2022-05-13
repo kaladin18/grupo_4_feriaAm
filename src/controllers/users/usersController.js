@@ -6,11 +6,6 @@ const User = require("../../models/User");
 const db = require("../../database/models");
 const sequelize = db.sequelize;
 
-
-const db = require("../../database/models");
-const sequelize = db.sequelize;
-
-
 let encryptPassword = (password) => {
   return bcrypt.hashSync(password, 10);
 };
