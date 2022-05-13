@@ -3,6 +3,9 @@ const bcrypt = require("bcryptjs");
 const fs = require("fs");
 const path = require("path");
 const User = require("../../models/User");
+const db = require("../../database/models");
+const sequelize = db.sequelize;
+
 
 const db = require("../../database/models");
 const sequelize = db.sequelize;
@@ -65,6 +68,7 @@ module.exports = {
 
     
   },
+  
  
   //LOGIN
   login: function (req, res) {
