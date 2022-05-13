@@ -38,5 +38,15 @@
   "userType": "buyer",
   "password": "$2a$10$lYM1UDgbIN67nN.gCSCM5u0geeNkyLtB4QZqub/FlCuHyvt8jvGse",
   "image": "1649644030764._img_.png"
+ },
+ {
+  "id": 5,
+  "name": "Franco",
+  "lastName": "Santa María ",
+  "email": "francosantamaria.sm@gmail.com",
+  "birthday": "1999-02-15",
+  "userType": "buyer",
+  "password": "$2a$10$5z.MubWSsBfA31f3hsSjKuO6Ch3G66KjBKiUNRCcAOFxW9/aFm/x2",
+  "image": "1652138191865._img_.jpeg"
  }
 ]
