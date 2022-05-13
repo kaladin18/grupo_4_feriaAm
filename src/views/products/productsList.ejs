@@ -1,16 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include ("../partials/head.ejs") %> 
+<%- include ("../partials/head.ejs") %>
+
 <body>
-<%- include ("../partials/header.ejs") %>
-<main>
-    <h3>Listado de productos</h3>
-    <ul>
-    <% productList.forEach((producto, index) => { %>
-        <li> Nombre: <%= producto.name %>  </li>
-    <% }) %>
-    </ul>
-</main>
-<%- include ("../partials/footer.ejs") %> 
+  <%- include ("../partials/header.ejs") %>
+  <main>
+    <% if (isSeller) { %>
+    <h3>Selecciona un producto para ver en detalle y editarlo/eliminarlo</h3>
+    <% } %>
+
+    <% for (let x = 0; x < productList.length; x = x+4) { %>
+    <section class="products">
+      <div class="product-container flex-row">
+        <% for( let i = 0; i < 4; i++ ) { %>
+        <% if (productList[i+x]) { %>
+
+        <article>
+          <a href="/products/db/<%= productList[i+x].id %> ">
+            <img src="/images/products/<%= productList[i+x].image %> " alt="Imagen de <%= productList[i+x].name %> ">
+            <div class="product-card">
+              <div class="flex-row">
+                <p class="price"> $<%= productList[i+x].price %> </p>
+                <p class="discount"><%= productList[i+x].discount? productList[i+x].discount + " off" : " " %> </p>
+              </div>
+              <h3 class="description"><%= productList[i+x].name %></h3>
+            </div>
+
+          </a>
+        </article>
+
+        <% } else { %>
+        <% i = 4 %>
+        <% } %>
+
+        <% } %>
+      </div>
+      <% } %>
+    </section>
+  </main>
+  <%- include ("../partials/footer.ejs") %>
 </body>
+
 </html>

@@ -1,16 +1,19 @@
-const fs = require("fs");
-const path = require("path");
 const db = require("../../database/models");
 const sequelize = db.sequelize;
+const { Op } = require("sequelize");
+
 
 module.exports = {
   list: function (req, res) {
-    db.Product.findAll({
+    db.Product.findAll({where: {
+      seller_id: req.session.loggedUser.id
+    }},{
       include: [{ association: "vendedor" }, { association: "categoria" }],
     }).then((products) => {
       res.render("products/productsList", {
         title: "Productos",
         productList: products,
+        isSeller: true
       });
     });
   },
@@ -114,4 +117,19 @@ module.exports = {
       res.redirect("/products");
     })
   },
-};
+  search: function (req, res) {
+    db.Product.findAll({where: {
+      name: {
+        [Op.like]: "%" + req.query.query + "%"
+      }
+    } },{
+      include: [{ association: "vendedor" }, { association: "categoria" }],
+    }).then((products) => {
+      res.render("products/productsList", {
+        title: "Resultado de busqueda",
+        productList: products,
+        isSeller: false
+      });
+    });
+}
+}

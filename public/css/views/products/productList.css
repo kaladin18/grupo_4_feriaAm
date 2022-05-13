@@ -1,0 +1,10 @@
+.product-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.product-list ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

@@ -5,8 +5,8 @@ const { productImageUpload } = require("../../middlewares/imageUpload");
 const productSellerAuthMiddleware = require("../../middlewares/productSellerAuthMiddleware");
 const router = express.Router();
 
-router.get("/", productsController.list);
-
+router.get("/", authMiddleware, productsController.list);
+router.get("/search", productsController.search);
 router.get("/db/:id", productsController.detail);
 //creacion y edicion de productos
 router.get("/create", authMiddleware, productsController.create);
@@ -19,6 +19,8 @@ router.get(
 );
 router.put("/db/:id", productsController.editProcess);
 router.delete("/db/:id", productsController.deleteProcess);
+
+
 //Carrito
 // router.get("/cart", authMiddleware, productsController.cart);
 // router.post("/db/:id", authMiddleware, productsController.addToCart);

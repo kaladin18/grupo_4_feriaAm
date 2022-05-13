@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include ("../partials/head.ejs") %> 
+<body>
+    <%- include("../partials/header.ejs") %> 
+    <main class="user-detail">
+        <div class="register">
+
+            <form action="/users/profile/detail?_method=PUT" method="POST" enctype="application/x-www-form-urlencoded">
+                <div class="nombre">
+                    <input type="hidden" name="id" value="<%= currentUser.id %> ">
+                    <input type="hidden" name="userType" value="<%= currentUserType %> ">
+                  <label for="name">Nombre</label>
+                  <% if (locals.errors && errors.name) { %>
+                  <div class="show-error">
+                    <%= errors.name.msg %>
+                  </div>
+                  <% } %>
+                  <input type="text" name="name" id="name" placeholder="Nombre" class="inputt" value="<%= locals.oldData ? oldData.name : null%>">
+          
+          
+                  <label for="name">Apellido</label>
+                  <% if (locals.errors && errors.lastName) { %>
+                  <div class="show-error">
+                    <%= errors.lastName.msg %>
+                  </div>
+                  <% } %>
+                  <input type="text" name="last_name" id="last_name" placeholder="Apellido" class="inputt" value="<%= locals.oldData ? oldData.last_name : null%>">
+          
+                </div>
+                <div class="email">
+                  <label for="email"> Ingresá tu email </label>
+                  <% if (locals.errors && errors.email) { %>
+                  <div class="show-error">
+                    <%= errors.email.msg %>
+                  </div>
+                  <% } %>
+                  <input type="email" name="email" id="email" placeholder="Email" class="inputt" value="<%= locals.oldData ? oldData.email : null%>">
+          
+                </div>
+        
+                <div class="formGroup">
+                  <label for="birthday" class="labelTitle">Fecha de Nacimiento</label>
+                  <% if (locals.errors && errors.birthday) { %>
+                  <div class="show-error">
+                    <%= errors.birthday.msg %>
+                  </div>
+                  <% } %>
+                  <input type="date" name="birthday" id="birthday" class="inputt" value="<%= locals.oldData ? oldData.birthday : null%>">
+          
+                </div>
+          
+                  <div class="buttons">
+                    <input type="submit" value="Enviar" class="btn">
+                    <input type="reset" value="Resetear Datos" class="btn dlt">
+                  </div>
+                </form>
+        </div>
+        
+    </main>
+    <%- include("../partials/footer.ejs") %> 
+</body>
+</html>
