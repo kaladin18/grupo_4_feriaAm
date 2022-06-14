@@ -43,7 +43,7 @@ header .top-header form input {
 }
 header .logo {
     flex-grow: 1;
-    max-width: 30%;
+    max-width: 50%;
 }
 header .logo img {
     max-height: 50px;

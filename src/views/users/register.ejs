@@ -10,8 +10,11 @@
         ¡REGISTRATE A CONTINUACIÓN!
       </h4>
       </div>      
-
-    <form action="/users/register" method="POST" enctype="multipart/form-data">
+      <section class="errores">
+        <ul>
+        </ul>
+      </section>
+    <form id="register-form" action="/users/register" method="POST" enctype="multipart/form-data">
       <div class="nombre">
         <label for="name">Ingresá tu nombre</label>
         <% if (locals.errors && errors.name) { %>
@@ -105,6 +108,7 @@
       </form>
   </main>
   <%- include("../partials/footer.ejs") %>
+  <script src="/js/register.js"></script>
 </body>
 
 </html>

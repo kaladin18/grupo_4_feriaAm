@@ -29,13 +29,8 @@
             <input type="hidden" name="discount" id="discount" value=<%= data.discount %>>
             <input type="hidden" name="id" id="id" value=<%= data.id %>>
 
-            <h4>Disponibles: <%- data.categoria.stock %> </h4>
-            <select name="product-amount" id="product-amount">
-              <option value="">Selecciona Cantidad</option>
-              <% for (let i = 1; i <= data.categoria.stock; i++) { %>
-              <option value=<%= i %>> <%= i %> </option>
-              <% } %>
-            </select>
+          
+           
             <% if (locals.isLogged && locals.currentUser.id == data.seller_id) { %>
             <a class="btn" href="/products/db/<%= data.id %>/edit "> Editar/eliminar producto</a>
             <% } else {%>

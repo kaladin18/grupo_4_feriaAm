@@ -40,7 +40,7 @@ CREATE TABLE `buyers` (
 
 LOCK TABLES `buyers` WRITE;
 /*!40000 ALTER TABLE `buyers` DISABLE KEYS */;
-INSERT INTO `buyers` VALUES (1,'Brenda','Cistriano','breen_mica@hotmail.com','1649547330838._img_.jpg','1999-02-10','$2a$10$MHg3D8P9h8nwFR0QJk7ws.SnLhQ910.BYjFvFW0wJvFsHJRcsMajW'),(2,'Fernanda','Jimenez','fjimenez@gmail.com','1649644030764._img_.png','1990-11-02','$2a$10$lYM1UDgbIN67nN.gCSCM5u0geeNkyLtB4QZqub/FlCuHyvt8jvGse');
+INSERT INTO `buyers` VALUES (1,'Brenda','Cistriano','breen_mica@hotmail.com','1649547330838._img_.jpg','1995-06-18','$2a$10$MHg3D8P9h8nwFR0QJk7ws.SnLhQ910.BYjFvFW0wJvFsHJRcsMajW'),(2,'Fernanda','Jimenez','fjimenez@gmail.com','1649644030764._img_.png','1990-11-02','$2a$10$lYM1UDgbIN67nN.gCSCM5u0geeNkyLtB4QZqub/FlCuHyvt8jvGse');
 /*!40000 ALTER TABLE `buyers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -114,7 +114,7 @@ CREATE TABLE `category` (
   `size` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `stock` int(3) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,7 +123,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (1,1,'clothes','children','t-shirt','grey','L',2),(2,1,'clothes','adult','short','beige','42',1),(3,1,'shoes','children','sneakers','Azul y amarillo','36',1),(4,0,'shoes','adult','shoe','Negro','39',1),(5,0,'clothes','adult','hat','Marrón','Universal',3),(6,0,'clothes','adult','dress','Silver','5',1),(7,0,'clothes','adult','pants','Marrón claro','42',1);
+INSERT INTO `category` VALUES (1,1,'clothes','children','t-shirt','Gris','L',2),(2,1,'clothes','adult','short','beige','42',1),(3,1,'shoes','children','sports','Azul','36',1),(4,0,'shoes','adult','casual','Negro','39',1),(5,0,'clothes','adult','hat','Marrón','Universal',3),(6,0,'clothes','adult','dress','Silver','5',1),(7,0,'clothes','adult','pants','Marrón claro','42',1);
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -146,9 +146,9 @@ CREATE TABLE `products` (
   PRIMARY KEY (`id`),
   KEY `seller_id` (`seller_id`),
   KEY `category_id` (`category_id`),
-  CONSTRAINT `products_ibfk_1` FOREIGN KEY (`seller_id`) REFERENCES `sellers` (`id`),
-  CONSTRAINT `products_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  CONSTRAINT `products_ibfk_1` FOREIGN KEY (`seller_id`) REFERENCES `sellers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `products_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -157,7 +157,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (2,'Remera estampada Marvel Avengers','Aguante Marvel',9266.26,NULL,1,1,'marvel-avengers-remera.jpg'),(3,'Short','Es un short',1299.99,NULL,1,2,'short.jpg'),(4,'Zapatilla Pikachu','Bien eléctricas',15500.00,NULL,1,3,'zapatilla-pikachu.jpeg'),(5,'Zapatos fiesta','Usados en perfecto estado',8999.99,NULL,1,4,'zapatos-mujer.jpg'),(6,'Sombrero de vaquero','Da poderes místicos',3500.00,NULL,1,5,'1649642171553._img_.webp'),(7,'Vestido de fiesta','Siempre al top',25500.00,NULL,1,6,'1649642385049._img_.jpg'),(8,'Pantalones normales','Solo unos pantalones igual que cualquier otro, nada extraño por aquí',25500.00,NULL,1,7,'1649889234914._img_.jpg');
+INSERT INTO `products` VALUES (2,'Remera estampada Marvel Avengers ','Aguante Marvel ',9266.26,NULL,1,1,'marvel-avengers-remera.jpg'),(3,'Short','Es un short',1299.99,NULL,1,2,'short.jpg'),(4,'Zapatilla Pikachu ','Bien eléctricas ',15500.00,NULL,1,3,'zapatilla-pikachu.jpeg'),(5,'Zapatos fiesta ','Usados en perfecto estado ',8999.99,NULL,1,4,'zapatos-mujer.jpg'),(6,'Sombrero de vaquero','Da poderes místicos',3500.00,NULL,1,5,'1649642171553._img_.webp'),(7,'Vestido de fiesta','Siempre al top',25500.00,NULL,1,6,'1649642385049._img_.jpg'),(8,'Pantalones normales','Solo unos pantalones igual que cualquier otro, nada extraño por aquí',25500.00,NULL,1,7,'1649889234914._img_.jpg');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -177,7 +177,7 @@ CREATE TABLE `sellers` (
   `birthday` date DEFAULT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -186,9 +186,13 @@ CREATE TABLE `sellers` (
 
 LOCK TABLES `sellers` WRITE;
 /*!40000 ALTER TABLE `sellers` DISABLE KEYS */;
-INSERT INTO `sellers` VALUES (1,'Franco','Santa María','francosantamaria.sm@gmail.com','1649141426250._img_.jpg','1995-06-18','$2a$10$XaT1sFzLvV1la1he5JyXruZRz0PChDlB1Q9yhtNahRak/.KVTv1mq'),(2,'Juan','Alvarez','jalvarez@gmail.com','1649145106892._img_.jpg.jpg','1990-05-04','$2a$10$fRQSUcAp6qN3Am.k1VAtue.gGejXHso/PfTEKKME4FY7ZT1AQUKGe');
+INSERT INTO `sellers` VALUES (1,'Franco Diego','Santa María','francosantamaria.sm@gmail.com','1649141426250._img_.jpg','1995-06-18','$2a$10$C4ZsBCYfwpZwysVto2Q8Vuvg2FQIIjO//FqYVwQeiGr2uwOxKbOuW'),(2,'Juan','Alvarez','jalvarez@gmail.com','1649145106892._img_.jpg.jpg','1990-05-04','$2a$10$fRQSUcAp6qN3Am.k1VAtue.gGejXHso/PfTEKKME4FY7ZT1AQUKGe'),(3,'prueba','sqlcrud','pruebacrud@gmail.com','1651557379958._img_.jpg','1999-11-11','$2a$10$SNmc19G15VXgQ1PNhx7PUeBU7dylv5kB9XELHY/WZLyrNWH96p/E.'),(4,'Rodrigo','Pérez','rperez@gmail.com','1652138627313._img_.jpg','1999-06-25','$2a$10$H38xVlOQOq47E5aD3eMFdeMieY0iydU5K4H6vKLU9q1PCW88toqmy');
 /*!40000 ALTER TABLE `sellers` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'feria_amg4'
+--
 
 --
 -- Dumping routines for database 'feria_amg4'
@@ -203,4 +207,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-16  0:44:43
+-- Dump completed on 2022-06-03 17:01:29
