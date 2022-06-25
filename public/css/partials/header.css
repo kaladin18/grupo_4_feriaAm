@@ -43,13 +43,14 @@ header .top-header form input {
 }
 header .logo {
     flex-grow: 1;
-    max-width: 50%;
+    max-width: 70%;
 }
 header .logo img {
     max-height: 50px;
 }
 .register-login{
     display: none;
+    font-size: 15px;
 }
 header nav {
     display: none;
@@ -92,6 +93,7 @@ header ul li {
         flex-grow: 1;
         gap: 10px;
         justify-content: center;
+        
     }
     header nav{
         display: flex;
