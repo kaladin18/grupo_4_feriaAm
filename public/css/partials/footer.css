@@ -1,18 +1,27 @@
 /* Footer */
 .footer{
     background-color: #800080;
+    padding-top: 30px;;
+    
+    
 }
 .fa {
     padding: 10px;
-    font-size: 30px;
-    width: 50px;
+    font-size: 20px;
+    width: 40px;
     text-align: center;
     text-decoration: none;
+    bottom: 10px;
+    
+    
+
   }
  /* Facebook */
 .fa-facebook:hover {
     background: #3B5998;
     color: white;
+    
+    
   }
   
   /* Twitter */
@@ -21,29 +30,36 @@
     color: white;
   }
   .fa-instagram:hover{
-      background: #125688;
+      background: #eb27c0;
       color: white;
   }
+
 .footerizquierdo {
-    font-size: 20px;
-    color: white;
-    
     text-align: left;
-    
+    color: white;
+    font-size: 20px;
+    position: relative;
+    width: 15%;
+    bottom: 10px;
     
 }
 
 .footerderecho {
-    font-size: 20px;
-    color: white;
-
     text-align: right;
+    color: white;
+    font-size: 20px;
+    position:relative;
+    width: 95%;
+    bottom: 90px;
+    
 }
 
 .footercentro {
     text-align: center;
     color: white;
-    
     font-size: 20px;
+    position: relative;
+    bottom: 70px;
+    
     
 }
