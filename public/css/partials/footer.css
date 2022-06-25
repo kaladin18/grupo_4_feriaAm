@@ -1,7 +1,7 @@
 /* Footer */
 .footer{
     background-color: #800080;
-    padding-top: 30px;;
+    padding-top: 30px;
     
     
 }
@@ -50,7 +50,7 @@
     font-size: 20px;
     position:relative;
     width: 95%;
-    bottom: 90px;
+    bottom: 95px;
     
 }
 
@@ -62,4 +62,10 @@
     bottom: 70px;
     
     
+}
+
+.idioma {
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
 }
