@@ -1,7 +1,32 @@
 /* Footer */
-
+.footer{
+    background-color: #800080;
+}
+.fa {
+    padding: 10px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+  }
+ /* Facebook */
+.fa-facebook:hover {
+    background: #3B5998;
+    color: white;
+  }
+  
+  /* Twitter */
+  .fa-twitter:hover {
+    background: #55ACEE;
+    color: white;
+  }
+  .fa-instagram:hover{
+      background: #125688;
+      color: white;
+  }
 .footerizquierdo {
     font-size: 20px;
+    color: white;
     
     text-align: left;
     
@@ -10,12 +35,14 @@
 
 .footerderecho {
     font-size: 20px;
+    color: white;
 
     text-align: right;
 }
 
 .footercentro {
     text-align: center;
+    color: white;
     
     font-size: 20px;
     

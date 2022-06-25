@@ -2,7 +2,7 @@ module.exports = {
   "development": {
     "username": "root",
     "password": "",
-    "database": "feria_amg4",
+    "database": "feria_aG4",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
