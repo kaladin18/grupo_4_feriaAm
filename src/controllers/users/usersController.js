@@ -19,7 +19,7 @@ module.exports = {
   register: function (req, res) {
     res.render("users/register", { title: "Registrate gratis" });
   },
-  
+
   registerProcess: function (req, res) {
     let errors = validationResult(req);
     let oldData = req.body;
@@ -33,38 +33,37 @@ module.exports = {
     let userCreate = db.Buyer;
     if (req.body.userType == "seller") {
       userCreate = db.Seller;
-    } 
-    userCreate.findOrCreate({
-      where: { email: req.body.email }, 
-      defaults: {
-        name: req.body.name,
-        last_name: req.body.lastName,
-        image: req.file.filename,
-        birthday: req.body.birthday,
-        password: encryptPassword(req.body.password)
-      }
-    }).then(([newUser, created]) => {
-      if(!created) {
-        return res.render("users/register", {
-          title: "Error en la registracion",
-          errors: {
-            email: {
-              msg: "Este email ya está registrado",
+    }
+    userCreate
+      .findOrCreate({
+        where: { email: req.body.email },
+        defaults: {
+          name: req.body.name,
+          last_name: req.body.lastName,
+          image: req.file.filename,
+          birthday: req.body.birthday,
+          password: encryptPassword(req.body.password),
+        },
+      })
+      .then(([newUser, created]) => {
+        if (!created) {
+          return res.render("users/register", {
+            title: "Error en la registracion",
+            errors: {
+              email: {
+                msg: "Este email ya está registrado",
+              },
             },
-          },
-          oldData: oldData,
+            oldData: oldData,
+          });
+        }
+        res.render("users/registerSuccess", {
+          title: "Bienvenido!",
+          newUserName: req.body.name,
         });
-      }
-      res.render("users/registerSuccess", {
-        title: "Bienvenido!",
-        newUserName: req.body.name,
       });
-    });
-
-    
   },
-  
- 
+
   //LOGIN
   login: function (req, res) {
     res.render("users/login", { title: "Iniciar sesión" });
@@ -76,40 +75,43 @@ module.exports = {
     let userType = db.Buyer;
     if (req.body.userType == "seller") {
       userType = db.Seller;
-    } 
-    userType.findOne({where: {email: req.body.email}})
-    .then((userToLogin) => {
-      if (userToLogin) {
-        if (comparePasswords(req.body.password, userToLogin.password)) {
-          delete userToLogin.password;
-          req.session.loggedUser = userToLogin;
-          req.session.loggedUserType = req.body.userType
-  
-          if (req.body.rememberMe) {
-            res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
-            res.cookie("userType", req.body.userType, { maxAge: 1000 * 60 * 70 });
+    }
+    userType
+      .findOne({ where: { email: req.body.email } })
+      .then((userToLogin) => {
+        if (userToLogin) {
+          if (comparePasswords(req.body.password, userToLogin.password)) {
+            delete userToLogin.password;
+            req.session.loggedUser = userToLogin;
+            req.session.loggedUserType = req.body.userType;
+
+            if (req.body.rememberMe) {
+              res.cookie("userEmail", req.body.email, {
+                maxAge: 1000 * 60 * 60,
+              });
+              res.cookie("userType", req.body.userType, {
+                maxAge: 1000 * 60 * 70,
+              });
+            }
+            return res.redirect("/");
           }
-          return res.redirect("/");
+          return res.render("users/login", {
+            errors: {
+              password: {
+                msg: "La contraseña es incorrecta",
+              },
+            },
+            oldData: oldData,
+          });
         }
         return res.render("users/login", {
           errors: {
-            password: {
-              msg: "La contraseña es incorrecta",
+            email: {
+              msg: "Este email no se encuentra registrado",
             },
           },
-          oldData: oldData,
         });
-      }
-      return res.render("users/login", {
-        errors: {
-          email: {
-            msg: "Este email no se encuentra registrado",
-          },
-        },
       });
-    })
-
-   
   },
 
   //Perfil
@@ -126,7 +128,10 @@ module.exports = {
         oldData: oldData,
       });
     }
-    res.render("users/editUserData", {title: "Editá tus datos", oldData: oldData})
+    res.render("users/editUserData", {
+      title: "Editá tus datos",
+      oldData: oldData,
+    });
   },
 
   updateProfile: function (req, res) {
@@ -134,51 +139,55 @@ module.exports = {
     let userEdit = db.Buyer;
     if (req.session.loggedUserType == "seller") {
       userEdit = db.Seller;
-    } 
-    userEdit.update(
-      {
-        name: newData.name,
-        last_name: newData.last_name,
-        birthday: newData.birthday
-      },
-      { where: { id: req.session.loggedUser.id } }
-    )
+    }
+    userEdit
+      .update(
+        {
+          name: newData.name,
+          last_name: newData.last_name,
+          birthday: newData.birthday,
+        },
+        { where: { id: req.session.loggedUser.id } }
+      )
       .then(() => {
-        userEdit.findOne({where: {id: req.session.loggedUser.id}})
-        .then((updatedUser) => {
-          req.session.loggedUser = updatedUser;
-          res.redirect("/users/profile");
-        })
-        
+        userEdit
+          .findOne({ where: { id: req.session.loggedUser.id } })
+          .then((updatedUser) => {
+            req.session.loggedUser = updatedUser;
+            res.redirect("/users/profile");
+          });
       });
   },
 
   editPassword: function (req, res) {
-      res.render("users/editPassword")
+    res.render("users/editPassword");
   },
 
   updatePassword: function (req, res) {
     let userEdit = db.Buyer;
     if (req.session.loggedUserType == "seller") {
       userEdit = db.Seller;
-    } 
-    userEdit.update(
-      {
-        password: encryptPassword(req.body.password)
-      },
-      { where: { id: req.session.loggedUser.id } }
-    )
+    }
+    userEdit
+      .update(
+        {
+          password: encryptPassword(req.body.password),
+        },
+        { where: { id: req.session.loggedUser.id } }
+      )
       .then(() => {
         res.redirect("/users/profile");
       });
   },
-  
 
   //Logout
   logout: function (req, res) {
     res.clearCookie("userEmail");
+    res.clearCookie("userType");
+
     req.session.destroy();
     res.locals.currentUser = null;
-    return res.redirect("/");
+    
+    res.redirect("/");
   },
 };

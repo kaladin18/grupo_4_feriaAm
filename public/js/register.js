@@ -38,7 +38,7 @@ window.addEventListener("load", function () {
       errores.push("Debe ingresar una contraseña");
     } else if (password.value.length < 8) {
       errores.push("La contraseña debe contener al menos 8 caracteres");
-    } else if (password != rePassword) {
+    } else if (password.value != rePassword.value) {
         errores.push("Las contraseñas deben coincidir");
     }
     const allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
