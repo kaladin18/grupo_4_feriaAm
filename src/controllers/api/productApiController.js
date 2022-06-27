@@ -31,8 +31,10 @@ module.exports = {
                     id: producto.id,
                     name: producto.name,
                     description: producto.description,
+                    created_at: producto.created_at,
+                    updated_at: producto.updated_at,
                     categories: producto.categoria,
-                    detail: "http://localhost:3000/api/products/" + producto.id
+                    detail: "http://localhost:4001/api/products/" + producto.id
                 })
                 
             });
@@ -46,7 +48,7 @@ module.exports = {
                         new: cantidadNueva,
                         used: cantidadUsada
                     },
-                    url: "http://localhost:3000/api/products"
+                    url: "http://localhost:4001/api/products"
                 },
                 products: data
             };
@@ -60,14 +62,14 @@ module.exports = {
             let response = {
                 meta: {
                     status: 200,
-                    url: "http://localhost:3000/api/products/"+ producto.id
+                    url: "http://localhost:4001/api/products/"+ producto.id
                 },
                 product: {
                     id: producto.id,
                     name: producto.name,
                     description: producto.description,
                     price: producto.price,
-                    image: "http://localhost:3000/images/users/" + producto.image,
+                    image: "http://localhost:4001/images/products/" + producto.image,
                     created_at: producto.created_at,
                     updated_at: producto.updated_at,
                     category: producto.categoria

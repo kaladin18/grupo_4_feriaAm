@@ -1,0 +1,19 @@
+.tarjeta{
+  max-width: 25vw;
+  background-color: gray;
+  width: 50px;
+}
+img {
+  max-width: 100px;
+}
+.parent {
+  display: flex;
+  width: 100vw;
+  
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.parent div {
+  flex-grow: 1;
+}

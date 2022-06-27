@@ -12,14 +12,15 @@ module.exports = {
                         id: element.id,
                         name: element.name + " " + element.last_name,
                         email: element.email,
-                        detail: "api/sellers/"+ element.id
+                        detail: "http://localhost:4001/api/sellers/"+ element.id,
+                        created_at: element.created_at
                     })
                 });
                 let response = {
                     meta: {
                         status: 200,
                         count: sellers.length,
-                        url: "api/sellers"
+                        url: "http://localhost:4001/api/sellers"
                     },
                     sellers: data
                 };
@@ -39,9 +40,9 @@ module.exports = {
                         last_name: seller.last_name,
                         email: seller.email,
                         birthday: seller.birthday,
-                        image: "http://localhost:3000/images/users/" + seller.image,
+                        image: "http://localhost:4001/images/users/" + seller.image,
                         created_at: seller.created_at,
-                        updated_at: seller.updated_at
+                       
 
                     }
                 };

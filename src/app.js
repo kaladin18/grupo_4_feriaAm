@@ -3,11 +3,11 @@ const express = require("express");
 const session = require("express-session");
 const cookies = require("cookie-parser");
 const loggedUserMiddleware = require("./middlewares/loggedUserMiddleware");
-
+const cors = require('cors') 
 
 const app = express();
 
-
+app.use(cors())
 
 const methodOverride = require("method-override");
 
