@@ -2,22 +2,99 @@ const db = require("../../database/models");
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 
-
 module.exports = {
   list: function (req, res) {
-    db.Product.findAll({where: {
-      seller_id: req.session.loggedUser.id
-    }},{
-      include: [{ association: "vendedor" }, { association: "categoria" }],
-    }).then((products) => {
+    db.Product.findAll(
+      {
+        where: {
+          seller_id: req.session.loggedUser.id,
+        },
+      },
+      {
+        include: [{ association: "vendedor" }, { association: "categoria" }],
+      }
+    ).then((products) => {
       res.render("products/productsList", {
         title: "Productos",
         productList: products,
-        isSeller: true
+        isSeller: true,
       });
     });
   },
-//! FALTA CAMBIAR PARA QUE TRABAJE CON SEQUELIZE
+  type: function (req, res) {
+    let search = req.params.type;
+    if (search == "clothes" || search == "shoes") {
+      db.Product.findAll({
+        include: [
+          {
+            association: "categoria",
+            where: {
+              class: search,
+            },
+          },
+        ],
+      }).then((productData) => {
+        let limite = 4;
+        if (productData.length < 4) {
+          limite = productData.length;
+        }
+        res.render("index", {
+          title: "Tu búsqueda",
+          productData: productData,
+          limite: limite,
+        });
+      });
+    }
+    if (search == "used") {
+      search = 0;
+      console.log("aadasdasdf");
+      db.Product.findAll({
+        include: [
+          {
+            association: "categoria",
+            where: {
+              state: search,
+            },
+          },
+        ],
+      }).then((productData) => {
+        let limite = 4;
+        if (productData.length < 4) {
+          limite = productData.length;
+        }
+        res.render("index", {
+          title: "Usados",
+          productData: productData,
+          limite: limite,
+        });
+      });
+    }
+    if (search == "new") {
+      search = 1;
+      db.Product.findAll({
+        include: [
+          {
+            association: "categoria",
+            where: {
+             state: search,
+            },
+          },
+        ],
+      }).then((productData) => {
+        let limite = 4;
+        if (productData.length < 4) {
+          limite = productData.length;
+        }
+        res.render("index", {
+          title: "Nuevos",
+          productData: productData,
+          limite: limite,
+        });
+      });
+    }
+  },
+
+  //! FALTA CAMBIAR PARA QUE TRABAJE CON SEQUELIZE
   // cart: function (req, res) {
   //   let loggedUser = req.session.loggedUser;
   //   let cart = Product.getCartData(loggedUser.id);
@@ -110,26 +187,32 @@ module.exports = {
 
   //! EL DELETE ES PERMANENTE POR AHORA
   deleteProcess: function (req, res) {
-    db.Product.findByPk(req.params.id).then((productToDelete) => {
-      db.Category.destroy({ where: { id: productToDelete.category_id } });
-    })
-    .then(() => {
-      res.redirect("/products");
-    })
+    db.Product.findByPk(req.params.id)
+      .then((productToDelete) => {
+        db.Category.destroy({ where: { id: productToDelete.category_id } });
+      })
+      .then(() => {
+        res.redirect("/products");
+      });
   },
   search: function (req, res) {
-    db.Product.findAll({where: {
-      name: {
-        [Op.like]: "%" + req.query.query + "%"
+    db.Product.findAll(
+      {
+        where: {
+          name: {
+            [Op.like]: "%" + req.query.query + "%",
+          },
+        },
+      },
+      {
+        include: [{ association: "vendedor" }, { association: "categoria" }],
       }
-    } },{
-      include: [{ association: "vendedor" }, { association: "categoria" }],
-    }).then((products) => {
+    ).then((products) => {
       res.render("products/productsList", {
         title: "Resultado de busqueda",
         productList: products,
-        isSeller: false
+        isSeller: false,
       });
     });
-}
-}
+  },
+};

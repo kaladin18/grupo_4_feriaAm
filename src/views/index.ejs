@@ -8,7 +8,8 @@
     <section class="products">
       <h3>Para vos</h3>
       <div class="product-container flex-row">
-        <% for( let i = 0; i < 4; i++ ) { %>
+        
+        <% for( let i = 0; i < limite ; i++ ) { %>
         <article>
           <a href="/products/db/<%= productData[i].id %> ">
             <img src="/images/products/<%= productData[i].image %> " alt="Imagen de <%= productData[i].name %> ">

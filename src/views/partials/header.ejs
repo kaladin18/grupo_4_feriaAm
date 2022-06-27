@@ -11,12 +11,15 @@
 
     <div class="register-login">
       <% if (locals.isLogged) { %>
-      <img src="/images/users/<%= locals.currentUser.image %> " alt="Imagen de perfil del usuario">
-      <a href="/users/profile">
-        <p>Hola <%= locals.currentUser.name %> </p>
-      </a>
-      <a href="/users/logout">Cerrar sesión</a>
+      <div class="dropdown">
 
+        <img src="/images/users/<%= locals.currentUser.image %> " alt="Imagen de perfil del usuario">
+        <button class="dropbtn"><%= locals.currentUser.name %></button>
+        <div class="dropdown-content">
+        <a href="/users/profile">Mi perfil</a>
+        <a href="/users/logout">Cerrar sesión</a>
+      </div>
+      </div>
       <% } else {%>
 
       <a href="/users/register">Registrate<i class="far fa-id-card"></i></a>
@@ -33,10 +36,10 @@
   </div>
   <nav>
     <ul>
-      <li><a href="">Nuevos</a></li>
-      <li><a href="">Usados</a></li>
-      <li><a href="">Ropa</a></li>
-      <li><a href="">Calzados</a></li>
+      <li><a href="/products/search/new">Nuevos</a></li>
+      <li><a href="/products/search/used">Usados</a></li>
+      <li><a href="/products/search/clothes">Ropa</a></li>
+      <li><a href="/products/search/shoes">Calzados</a></li>
     </ul>
   </nav>
 

@@ -7,6 +7,7 @@ module.exports = {
       res.render("index", {
         title: "Bienvenidos a la Feria",
         productData: productData,
+        limite: productData.length
       });
     });
   },

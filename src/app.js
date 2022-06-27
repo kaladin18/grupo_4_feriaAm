@@ -49,7 +49,7 @@ const productApiRoutes = require("./routes/api/productApi.routes");
 //RUta de archivos estáticos
 app.use(express.static(path.resolve(__dirname, "../public")));
 
-app.listen(3000, () => console.log("servidor corriendo en puerto 3000"));
+app.listen(4001, () => console.log("servidor corriendo en puerto 4001"));
 
 //Ruteo
 

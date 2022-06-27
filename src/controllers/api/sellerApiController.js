@@ -39,7 +39,7 @@ module.exports = {
                         last_name: seller.last_name,
                         email: seller.email,
                         birthday: seller.birthday,
-                        image: "/images/users/" + seller.image,
+                        image: "http://localhost:3000/images/users/" + seller.image,
                         created_at: seller.created_at,
                         updated_at: seller.updated_at
 

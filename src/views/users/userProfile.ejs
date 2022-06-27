@@ -3,19 +3,26 @@
 <%- include ("../partials/head.ejs") %> 
 <body>
     <%- include("../partials/header.ejs") %> 
-    <main class="admin-page">
+    <main >
+        <section class="admin-page">
         <div class="flex-row">
             <img src="/images/users/<%= locals.currentUser.image %> " alt="Imagen de perfil del usuario">
             <a href="/users/profile"> <p>Hola <%= locals.currentUser.name %> </p> </a>
-            <a href="/users/logout">Cerrar sesión</a>
+            
         </div>
         
        <div class="admin-options">
            <a href="/users/profile/detail">Ver/editar mi perfil</a>
            <a href="/users/profile/detail/change-password">Cambiar contraseña</a>
+           <% if (locals.currentUserType == "seller") { %>
             <a href="/products/create">Crear nuevo producto</a>
             <a href="/products">Ver productos publicados</a>
+           <% } %>
+            
+            
+            <a href="/users/logout">Cerrar sesión</a>
         </div>
+    </section>
     </main>
     <%- include("../partials/footer.ejs") %> 
 </body>
