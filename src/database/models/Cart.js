@@ -8,6 +8,18 @@ module.exports = function (sequelize, dataTypes) {
       allowNull: false,
     },
     buyer_id: dataTypes.INTEGER(10),
+    created_at: {
+      type: "TIMESTAMP",
+      defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+      allowNull: false,
+    },
+    updated_at: {
+      type: "TIMESTAMP",
+      defaultValue: sequelize.literal(
+        "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      ),
+      allowNull: false,
+    },
   };
   let config = {
     tableName: "cart",

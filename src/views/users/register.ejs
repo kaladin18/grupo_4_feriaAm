@@ -4,17 +4,19 @@
 
 <body>
   <%- include("../partials/header.ejs") %>
+  
   <main class="register">
     <div class="register-top">
       <h4>
         ¡REGISTRATE A CONTINUACIÓN!
       </h4>
-      </div>      
+    </div>
+    
+    <form id="register-form" action="/users/register" method="POST" enctype="multipart/form-data">
       <section class="errores">
         <ul>
         </ul>
       </section>
-    <form id="register-form" action="/users/register" method="POST" enctype="multipart/form-data">
       <div class="nombre">
         <label for="name">Ingresá tu nombre</label>
         <% if (locals.errors && errors.name) { %>
@@ -23,8 +25,8 @@
         </div>
         <% } %>
         <input type="text" name="name" id="name" placeholder="Nombre" class="inputt" value="<%= locals.oldData ? oldData.name : null%>">
-
-
+      </div>
+      <div class="last-name">
         <label for="name">Ingresá tu apellido</label>
         <% if (locals.errors && errors.lastName) { %>
         <div class="show-error">
@@ -63,11 +65,11 @@
         <input type="date" name="birthday" id="birthday" class="inputt" value="<%= locals.oldData ? oldData.birthday : null%>">
 
       </div>
-      
-     
+
+
       <div class="userType">
         <label for="userType"> ¿Qué tipo de cuenta querés? </label>
-      
+
         <% if (locals.errors && errors.userType) { %>
         <div class="show-error">
           <%= errors.userType.msg %>
@@ -92,7 +94,8 @@
         </div>
         <% } %>
         <input type="password" name="password" id="password" placeholder="contraseña" class="inputt">
-
+      </div>
+      <div class="repetir-contraseña">
         <label for="rePassword"> Reingresá tu contraseña </label>
         <% if (locals.errors && errors.rePassword) { %>
         <div class="show-error">
@@ -100,14 +103,16 @@
         </div>
         <% } %>
         <input type="password" name="rePassword" id="rePassword" placeholder="Repetí tu contraseña" class="inputt">
-
-        <div class="buttons">
-          <input type="submit" value="Enviar" class="btn">
-          <input type="reset" value="Resetear Datos" class="btn dlt">
-        </div>
-      </form>
+      </div>
+      <div class="buttons">
+        <input type="submit" value="Enviar" class="btn">
+        <input type="reset" value="Resetear Datos" class="btn dlt">
+      </div>
+    </form>
   </main>
+
   <%- include("../partials/footer.ejs") %>
+
   <script src="/js/register.js"></script>
 </body>
 

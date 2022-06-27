@@ -1,123 +1,124 @@
+
 .register {
-    padding-top: 1.6em;
-    min-height: 100vh;
-    background-color: #ebebeb;
+  padding-top: 1.6em;
+  min-height: 100vh;
+  background-color: #ebebeb;
 }
 .register-top {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .register-top a {
-    color: blue;
+  color: blue;
 }
 .register h4 {
-    width: 90%;
-    font-size: var(--title-md);
-    padding: 1em;
-    margin: 0 auto;
-    text-align: center;
+  width: 90%;
+  font-size: var(--title-md);
+  padding: 1em;
+  margin: 0 auto;
+  text-align: center;
 }
-  
+
 .register form {
-    width: 60%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 1em;
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1em;
 }
-  
+
 .register form h4 {
-    margin-top: 1em;
+  margin-top: 1em;
 }
 
 .register form input {
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    margin: 0.7em 0;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin: 0.7em 0;
 }
-.register form .inputt{
-    width: 100%;
+.register form .inputt {
+  width: 100%;
 }
-.register form .sexo{
-    margin-bottom: 5px;
+.register form .sexo {
+  margin-bottom: 5px;
 }
-.register label{
-    font-size: var(--text-md);
+.register label {
+  font-size: var(--text-md);
 }
 .formGroup {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .labelTitle {
-    font-size: 14px;
-    margin-top: 1em;
+  font-size: 14px;
+  margin-top: 1em;
 }
 
 .userType {
-    display: flex;
-    flex-direction: column;
-    /*justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  /*justify-content: flex-start;
     align-items: center;
     margin: 0.3em;
     gap: 2em;*/
 }
 .userType1 {
-    display: flex;
-    flex-direction: row;
-    gap: 1.5em;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 1.5em;
+  align-items: center;
 }
 .userType input {
-    margin: 1em;
+  margin: 1em;
 }
 
 .intereses {
-    display: flex;
-    flex-direction: column;
-    margin: 0.3em;
+  display: flex;
+  flex-direction: column;
+  margin: 0.3em;
 }
 
 .intereses input {
-    margin: 1em;
+  margin: 1em;
 }
 
 .buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
 }
-.btn{
-    background-color: #39b54a;
-    transition: background-color .5s ease;
+.btn {
+  background-color: #39b54a;
+  transition: background-color 0.5s ease;
 }
-.btn:hover{
-    background-color: #0022AA;
-    cursor: pointer;
+.btn:hover {
+  background-color: #0022aa;
+  cursor: pointer;
 }
 .buttons .dlt {
-    background-color: beige;
-    color: black;
+  background-color: beige;
+  color: black;
 }
 .dlt:hover {
-    background-color: #F72B2B;
+  background-color: #f72b2b;
 }
 
 .show-error {
-    font-size: var(--text-sm);
-    color: #F72B2B;
+  font-size: var(--text-sm);
+  color: #f72b2b;
 }
 
 @media (min-width: 481px) {
-    .userType {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        margin: 0.3em;
-        gap: 2em;
-    }
+  .userType {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0.3em;
+    gap: 2em;
+  }
 }

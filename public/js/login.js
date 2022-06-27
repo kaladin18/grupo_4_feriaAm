@@ -5,7 +5,7 @@ window.addEventListener("load", function () {
   
   //ERROR email
   let emailDiv = document.querySelector(".email");
-  let errorEmail = document.createElement("small");
+  let errorEmail = document.createElement("p");
   errorEmail.style.display = "none";
   errorEmail.style.color = "red";
   const contenidoEmail = document.createTextNode("Debe ingresar su email");
@@ -14,7 +14,7 @@ window.addEventListener("load", function () {
 
   //ERROR password
   let passwordDiv = document.querySelector(".contraseña");
-  let errorPassword = document.createElement("small");
+  let errorPassword = document.createElement("p");
   errorPassword.style.display = "none";
   errorPassword.style.color = "red";
   const contenidoPassword = document.createTextNode("Debe ingresar su contraseña");
